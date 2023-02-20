@@ -1,3 +1,6 @@
+Note that this is repository is a fork of the original repository, at: https://gitlab.gnome.org/World/amberol
+
+
 Amberol
 =======
 

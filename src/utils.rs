@@ -424,10 +424,7 @@ pub fn cmp_two_files(base: Option<&gio::File>, a: &gio::File, b: &gio::File) -> 
     let basename_a = a.basename().unwrap();
     let basename_b = b.basename().unwrap();
 
-    let mut order = cmp_like_nautilus(
-        &parent_basename_a.to_string_lossy(),
-        &parent_basename_b.to_string_lossy(),
-    );
+    let mut order = cmp_by_track_number(a, b);
 
     if order.is_eq() {
         order = cmp_like_nautilus(&basename_a.to_string_lossy(), &basename_b.to_string_lossy());
@@ -453,6 +450,35 @@ fn cmp_like_nautilus(filename_a: &str, filename_b: &str) -> Ordering {
     }
 
     order
+}
+
+
+fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
+    let path_a = a.path().expect("Unable to find file");
+    let tagged_file_a = match lofty::read_from_path(&path_a) {
+        Ok(f) => f,
+        Err(e) => {
+            warn!("Unable to open file {:?}: {}", path, e);
+            return Ordering::Equal;
+        }
+    };
+
+    let path_b = b.path().expect("Unable to find file");
+    let tagged_file_b = match lofty::read_from_path(&path_b) {
+        Ok(f) => f,
+        Err(e) => {
+            warn!("Unable to open file {:?}: {}", path, e);
+            return Ordering::Equal;
+        }
+    };
+
+    let track_number_a = tagged_file_a.track().unwrap_or(0);
+    let track_number_b = tagged_file_b.track().unwrap_or(0);
+
+    order = track_number_a.cmp(&track_number_b);
+
+    order
+
 }
 
 pub fn load_files_from_folder(folder: &gio::File, recursive: bool) -> Vec<gio::File> {

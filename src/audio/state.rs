@@ -63,7 +63,8 @@ mod imp {
             PROPERTIES.as_ref()
         }
 
-        fn property(&self, obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> glib::Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> glib::Value {
+            let obj = self.obj();
             match pspec.name() {
                 "playing" => obj.playing().to_value(),
                 "position" => obj.position().to_value(),
@@ -190,6 +191,6 @@ impl PlayerState {
 
 impl Default for PlayerState {
     fn default() -> Self {
-        glib::Object::new::<Self>(&[]).expect("Unable to create PlayerState instance")
+        glib::Object::new::<Self>(&[])
     }
 }

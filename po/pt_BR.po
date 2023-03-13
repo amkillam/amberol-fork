@@ -2,23 +2,23 @@
 # Copyright (C) 2022 amberol's COPYRIGHT HOLDER
 # This file is distributed under the same license as the amberol package.
 # Matheus Barbosa <mdpb.matheus@gmail.com>, 2022.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2022.
 # Enrico Nicoletto <hiko@duck.com>, 2022.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: amberol main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
-"POT-Creation-Date: 2022-08-28 17:48+0000\n"
-"PO-Revision-Date: 2022-09-06 22:23-0300\n"
-"Last-Translator: Enrico Nicoletto <hiko@duck.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"POT-Creation-Date: 2023-01-05 10:55+0000\n"
+"PO-Revision-Date: 2023-01-06 21:49-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 42.0\n"
 
 #: data/io.bassi.Amberol.desktop.in.in:3
 #: data/io.bassi.Amberol.appdata.xml.in.in:6
@@ -247,56 +247,56 @@ msgstr "Repetir"
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/gtk/playback-control.ui:177
+#: src/gtk/playback-control.ui:178
 msgctxt "a11y"
 msgid "Primary menu"
 msgstr "Menu primário"
 
-#: src/gtk/playback-control.ui:193
+#: src/gtk/playback-control.ui:194
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/gtk/playback-control.ui:199
+#: src/gtk/playback-control.ui:200
 msgid "Add _Song"
 msgstr "Adicionar mú_sica"
 
-#: src/gtk/playback-control.ui:203
+#: src/gtk/playback-control.ui:204
 msgid "Add _Folder"
 msgstr "Adicionar _pasta"
 
-#: src/gtk/playback-control.ui:207
+#: src/gtk/playback-control.ui:208
 msgid "Clear"
 msgstr "Limpar"
 
-#: src/gtk/playback-control.ui:213
+#: src/gtk/playback-control.ui:214
 msgid "_Match Cover Art"
 msgstr "Co_mbinar arte da capa"
 
-#: src/gtk/playback-control.ui:219
+#: src/gtk/playback-control.ui:220
 msgid "_ReplayGain"
 msgstr "_RepetirGanho"
 
-#: src/gtk/playback-control.ui:221
+#: src/gtk/playback-control.ui:222
 msgid "_Album"
 msgstr "_Álbum"
 
-#: src/gtk/playback-control.ui:226
+#: src/gtk/playback-control.ui:227
 msgid "_Track"
 msgstr "_Faixa"
 
-#: src/gtk/playback-control.ui:231
+#: src/gtk/playback-control.ui:232
 msgid "_Off"
 msgstr "Desligad_o"
 
-#: src/gtk/playback-control.ui:239
+#: src/gtk/playback-control.ui:240
 msgid "_Keyboard Shortcuts"
 msgstr "A_talhos de teclado"
 
-#: src/gtk/playback-control.ui:243
+#: src/gtk/playback-control.ui:244
 msgid "_About Amberol"
 msgstr "_Sobre o Amberol"
 
-#: src/gtk/playback-control.ui:247
+#: src/gtk/playback-control.ui:248
 msgid "_Quit"
 msgstr "_Sair"
 
@@ -342,12 +342,8 @@ msgid "Add Folder"
 msgstr "Adicionar pasta"
 
 #: src/gtk/window.ui:68
-msgid "Add File"
-msgstr "Adicionar arquivo"
-
-#: src/application.rs:181
-msgid "Plays music and nothing else"
-msgstr "Reproduz música e nada mais"
+msgid "Add Song"
+msgstr "Adicionar música"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:188
@@ -381,7 +377,7 @@ msgstr "Abrir arquivo"
 msgid "Audio files"
 msgstr "Arquivos de áudio"
 
-#: src/window.rs:428 src/window.rs:1276
+#: src/window.rs:428 src/window.rs:1293
 msgid "Unable to access files"
 msgstr "Não foi possível acessar arquivos"
 
@@ -401,40 +397,38 @@ msgstr "Não foi possível acessar pastas"
 msgid "No available song found"
 msgstr "Nenhuma música disponível encontrada"
 
-#: src/window.rs:523
+#: src/window.rs:532
 msgid "No songs found"
 msgstr "Nenhuma música encontrada"
 
-#: src/window.rs:549
+#: src/window.rs:559
 msgid "Added a new song"
 msgstr "Adicionada uma nova música"
 
-#: src/window.rs:550
+#: src/window.rs:560
 msgid "Play"
 msgstr "Reproduzir"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
 #. to the playlist
-#: src/window.rs:559
+#: src/window.rs:569
 msgid "Added one song"
 msgid_plural "Added {} songs"
 msgstr[0] "Adicionada uma música"
 msgstr[1] "Adicionadas {} músicas"
 
-#: src/window.rs:1012
+#: src/window.rs:1029
 msgid "Unable to access dropped files"
 msgstr "Não foi possível acessar arquivos ignorados"
 
-#: src/window.rs:1106
+#: src/window.rs:1123
 msgid "{} minute"
 msgid_plural "{} minutes"
 msgstr[0] "{} minuto"
 msgstr[1] "{} minutos"
 
-#: src/window.rs:1117
-#| msgid "{} minute remaining"
-#| msgid_plural "{} minutes remaining"
+#: src/window.rs:1134
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
 msgstr[0] "{hours} hora {minutes} restante"
@@ -443,19 +437,19 @@ msgstr[1] "{hours} horas {minutes} restantes"
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
 #. in the playlist
-#: src/window.rs:1127
+#: src/window.rs:1144
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
 msgstr[0] "{} minuto restante"
 msgstr[1] "{} minutos restantes"
 
-#: src/window.rs:1256
+#: src/window.rs:1273
 msgid "No song selected"
 msgstr "Nenhuma música selecionada"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
-#: src/window.rs:1261
+#: src/window.rs:1278
 msgid "{} song selected"
 msgid_plural "{} songs selected"
 msgstr[0] "{} música selecionada"
@@ -464,17 +458,22 @@ msgstr[1] "{} músicas selecionadas"
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
-#: src/window.rs:1314
+#: src/window.rs:1331
 msgid "Currently playing “{title}” by “{artist}”"
 msgstr "Atualmente reproduzindo “{title}” de “{artist}”"
 
-#: src/window.rs:1360
+#: src/window.rs:1377
 msgid "Amberol needs to run in the background to play music"
 msgstr "Amberol precisa ser executado em segundo plano para reproduzir músicas"
 
-#: src/window.rs:1373
-msgid "Amberol cannot run in the background"
-msgstr "Amberol não conseguiu ser executado em segundo plano"
+#~ msgid "Add File"
+#~ msgstr "Adicionar arquivo"
+
+#~ msgid "Plays music and nothing else"
+#~ msgstr "Reproduz música e nada mais"
+
+#~ msgid "Amberol cannot run in the background"
+#~ msgstr "Amberol não conseguiu ser executado em segundo plano"
 
 #~ msgid "“{}” is not a supported audio file"
 #~ msgstr "“{}” não é um arquivo de áudio com suporte"

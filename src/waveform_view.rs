@@ -36,7 +36,7 @@ impl DivAssign<f64> for PeakPair {
 }
 
 mod imp {
-    use glib::{subclass::Signal, ParamFlags, ParamSpec, ParamSpecDouble, Value};
+    use glib::{subclass::Signal, ParamSpec, ParamSpecDouble, Value};
     use once_cell::sync::Lazy;
 
     use super::*;
@@ -68,28 +68,24 @@ mod imp {
     impl ObjectImpl for WaveformView {
         fn properties() -> &'static [ParamSpec] {
             static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpecDouble::new(
-                    "position",
-                    "",
-                    "",
-                    0.0,
-                    1.0,
-                    0.0,
-                    ParamFlags::READWRITE,
-                )]
+                vec![ParamSpecDouble::builder("position")
+                    .minimum(0.0)
+                    .maximum(1.0)
+                    .default_value(0.0)
+                    .build()]
             });
 
             PROPERTIES.as_ref()
         }
 
-        fn set_property(&self, _obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
             match pspec.name() {
                 "position" => self.position.replace(value.get::<f64>().unwrap()),
                 _ => unimplemented!(),
             };
         }
 
-        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
             match pspec.name() {
                 "position" => self.position.get().to_value(),
                 _ => unimplemented!(),
@@ -98,33 +94,31 @@ mod imp {
 
         fn signals() -> &'static [Signal] {
             static SIGNALS: Lazy<Vec<Signal>> = Lazy::new(|| {
-                vec![Signal::builder(
-                    "position-changed",
-                    // The position
-                    &[f64::static_type().into()],
-                    <()>::static_type().into(),
-                )
-                .build()]
+                vec![Signal::builder("position-changed")
+                    .param_types([f64::static_type()])
+                    .build()]
             });
 
             SIGNALS.as_ref()
         }
 
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
+        fn constructed(&self) {
+            self.parent_constructed();
 
-            obj.set_focusable(true);
+            self.obj().set_focusable(true);
 
-            obj.setup_gesture();
+            self.obj().setup_gesture();
 
-            obj.upcast_ref::<gtk::Accessible>().update_property(&[
-                (gtk::accessible::Property::ValueMin(0.0)),
-                (gtk::accessible::Property::ValueMax(1.0)),
-                (gtk::accessible::Property::ValueNow(0.0)),
-            ]);
+            self.obj()
+                .upcast_ref::<gtk::Accessible>()
+                .update_property(&[
+                    (gtk::accessible::Property::ValueMin(0.0)),
+                    (gtk::accessible::Property::ValueMax(1.0)),
+                    (gtk::accessible::Property::ValueNow(0.0)),
+                ]);
         }
 
-        fn dispose(&self, _obj: &Self::Type) {
+        fn dispose(&self) {
             if let Some(tick_id) = self.tick_id.replace(None) {
                 tick_id.remove();
             }
@@ -132,8 +126,9 @@ mod imp {
     }
 
     impl WidgetImpl for WaveformView {
-        fn focus(&self, widget: &Self::Type, direction: gtk::DirectionType) -> bool {
+        fn focus(&self, direction: gtk::DirectionType) -> bool {
             debug!("WaveformView::focus({})", direction);
+            let widget = self.obj();
             if !widget.is_focus() {
                 widget.grab_focus();
                 return true;
@@ -150,16 +145,11 @@ mod imp {
             }
         }
 
-        fn request_mode(&self, _widget: &Self::Type) -> gtk::SizeRequestMode {
+        fn request_mode(&self) -> gtk::SizeRequestMode {
             gtk::SizeRequestMode::ConstantSize
         }
 
-        fn measure(
-            &self,
-            _widget: &Self::Type,
-            orientation: gtk::Orientation,
-            _for_size: i32,
-        ) -> (i32, i32, i32, i32) {
+        fn measure(&self, orientation: gtk::Orientation, _for_size: i32) -> (i32, i32, i32, i32) {
             match orientation {
                 gtk::Orientation::Horizontal => {
                     // We ask for as many samples we can fit within a 256 pixels wide area
@@ -177,7 +167,8 @@ mod imp {
             }
         }
 
-        fn snapshot(&self, widget: &Self::Type, snapshot: &gtk::Snapshot) {
+        fn snapshot(&self, snapshot: &gtk::Snapshot) {
+            let widget = self.obj();
             let w = widget.width();
             let h = widget.height();
             if w == 0 || h == 0 {
@@ -392,7 +383,7 @@ fn ease_out_cubic(t: f64) -> f64 {
 
 impl Default for WaveformView {
     fn default() -> Self {
-        glib::Object::new(&[]).expect("Failed to create WaveformView")
+        glib::Object::new::<Self>(&[])
     }
 }
 
@@ -500,7 +491,7 @@ impl WaveformView {
 
         let peak_pairs = match peaks {
             Some(p) => Some(self.normalize_peaks(p)),
-            None => None
+            None => None,
         };
 
         let enable_animations = self.settings().is_gtk_enable_animations();
@@ -514,65 +505,66 @@ impl WaveformView {
         self.imp().factor.set(None);
         self.imp().first_frame_time.set(None);
 
-        let tick_id =
-            self.add_tick_callback(clone!(@strong self as this => move |_, clock| {
-                let frame_time = clock.frame_time();
-                if let Some(first_frame_time) = this.imp().first_frame_time.get() {
-                    if frame_time < first_frame_time {
-                        warn!("Frame clock going backwards");
-                        return glib::Continue(true);
+        let tick_id = self.add_tick_callback(clone!(@strong self as this => move |_, clock| {
+            let frame_time = clock.frame_time();
+            if let Some(first_frame_time) = this.imp().first_frame_time.get() {
+                if frame_time < first_frame_time {
+                    warn!("Frame clock going backwards");
+                    return glib::Continue(true);
+                }
+
+                let has_peaks = match *this.imp().peaks.borrow() {
+                    Some(_) => true,
+                    None => false,
+                };
+
+                let has_next_peaks = match *this.imp().next_peaks.borrow() {
+                    Some(_) => true,
+                    None => false,
+                };
+
+                if has_peaks && has_next_peaks {
+                    // Animate the existing peaks to zero
+                    let progress = 1.0 - ((frame_time - first_frame_time) as f64 / ANIMATION_USECS);
+                    let delta = ease_out_cubic(progress);
+                    if delta < 0.0 {
+                        this.imp().peaks.replace(None);
+                        this.imp().factor.replace(None);
+                    } else {
+                        this.imp().factor.replace(Some(delta));
+                        this.queue_draw();
                     }
-
-                    let has_peaks = match *this.imp().peaks.borrow() {
-                        Some(_) => true,
-                        None => false,
-                    };
-
-                    let has_next_peaks = match *this.imp().next_peaks.borrow() {
-                        Some(_) => true,
-                        None => false,
-                    };
-
-                    if has_peaks && has_next_peaks {
-                        // Animate the existing peaks to zero
-                        let progress = 1.0 - ((frame_time - first_frame_time) as f64 / ANIMATION_USECS);
-                        let delta = ease_out_cubic(progress);
-                        if delta < 0.0 {
-                            this.imp().peaks.replace(None);
-                        } else {
-                            this.imp().factor.replace(Some(delta));
-                            this.queue_draw();
-                        }
-                    } else if has_peaks && !has_next_peaks {
-                        // Animate the peaks from zero
-                        let progress = (frame_time - first_frame_time) as f64 / ANIMATION_USECS;
-                        let delta = ease_out_cubic(progress);
-                        if delta > 1.0 {
-                            // Animation complete
-                            this.imp().factor.replace(None);
-                            this.imp().tick_id.replace(None);
-                            return glib::Continue(false);
-                        } else {
-                            this.imp().factor.replace(Some(delta));
-                            this.queue_draw();
-                        }
-                    } else if !has_peaks && has_next_peaks {
-                        // Swap peaks
-                        let next_peaks = this.imp().next_peaks.take();
-                        this.imp().peaks.replace(next_peaks);
+                } else if has_peaks && !has_next_peaks {
+                    // Animate the peaks from zero
+                    let progress = (frame_time - first_frame_time) as f64 / ANIMATION_USECS;
+                    let delta = ease_out_cubic(progress);
+                    if delta > 1.0 {
+                        // Animation complete
                         this.imp().factor.replace(None);
                         this.imp().first_frame_time.replace(None);
-                    } else {
-                        // No peaks
-                        this.imp().factor.replace(None);
                         this.imp().tick_id.replace(None);
                         return glib::Continue(false);
+                    } else {
+                        this.imp().factor.replace(Some(delta));
+                        this.queue_draw();
                     }
+                } else if !has_peaks && has_next_peaks {
+                    // Swap peaks
+                    let next_peaks = this.imp().next_peaks.take();
+                    this.imp().peaks.replace(next_peaks);
+                    this.imp().factor.replace(None);
+                    this.imp().first_frame_time.replace(None);
                 } else {
-                    this.imp().first_frame_time.replace(Some(frame_time));
+                    // No peaks
+                    this.imp().factor.replace(None);
+                    this.imp().tick_id.replace(None);
+                    return glib::Continue(false);
                 }
-                glib::Continue(true)
-            }));
+            } else {
+                this.imp().first_frame_time.replace(Some(frame_time));
+            }
+            glib::Continue(true)
+        }));
 
         self.imp().tick_id.replace(Some(tick_id));
         self.queue_resize();
@@ -585,4 +577,3 @@ impl WaveformView {
         self.queue_draw();
     }
 }
-

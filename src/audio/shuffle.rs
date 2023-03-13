@@ -41,23 +41,25 @@ mod imp {
             PROPERTIES.as_ref()
         }
 
-        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
             match pspec.name() {
                 "model" => self.model.borrow().to_value(),
                 _ => unimplemented!(),
             }
         }
 
-        fn set_property(&self, obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
             match pspec.name() {
-                "model" => obj.set_model(value.get::<gio::ListModel>().ok().as_ref()),
+                "model" => self
+                    .obj()
+                    .set_model(value.get::<gio::ListModel>().ok().as_ref()),
                 _ => unimplemented!(),
             };
         }
     }
 
     impl ListModelImpl for ShuffleListModel {
-        fn item_type(&self, _list_model: &Self::Type) -> glib::Type {
+        fn item_type(&self) -> glib::Type {
             if let Some(ref model) = *self.model.borrow() {
                 return model.item_type();
             }
@@ -65,7 +67,7 @@ mod imp {
             glib::Object::static_type()
         }
 
-        fn n_items(&self, _list_model: &Self::Type) -> u32 {
+        fn n_items(&self) -> u32 {
             if let Some(ref model) = *self.model.borrow() {
                 return model.n_items();
             }
@@ -73,7 +75,7 @@ mod imp {
             0
         }
 
-        fn item(&self, _list_model: &Self::Type, position: u32) -> Option<glib::Object> {
+        fn item(&self, position: u32) -> Option<glib::Object> {
             if let Some(ref model) = *self.model.borrow() {
                 if let Some(ref shuffle) = *self.shuffle.borrow() {
                     if let Some(shuffled_pos) = shuffle.get(position as usize) {
@@ -101,8 +103,9 @@ impl Default for ShuffleListModel {
 
 impl ShuffleListModel {
     pub fn new(model: Option<&impl IsA<gio::ListModel>>) -> Self {
-        glib::Object::new(&[("model", &model.map(|m| m.as_ref()))])
-            .expect("Failed to create ShuffleListModel")
+        glib::Object::builder::<Self>()
+            .property("model", &model.map(|m| m.as_ref()))
+            .build()
     }
 
     pub fn model(&self) -> Option<gio::ListModel> {

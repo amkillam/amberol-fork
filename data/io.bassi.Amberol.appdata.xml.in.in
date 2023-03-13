@@ -38,6 +38,7 @@
   <url type="homepage">https://gitlab.gnome.org/World/amberol</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/amberol/-/issues</url>
   <url type="donation">https://ko-fi.com/emmanueleb</url>
+  <url type="contact">https://matrix.to/#/#amberol:gnome.org</url>
   <developer_name>Emmanuele Bassi</developer_name>
   <update_contact>ebassi_at_gnome.org</update_contact>
   <translation type="gettext">amberol</translation>

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 use adw::subclass::prelude::*;
-use glib::{clone, ParamFlags, ParamSpec, ParamSpecDouble, Value};
+use glib::{clone, ParamSpec, ParamSpecDouble, Value};
 use gtk::{gio, glib, prelude::*, CompositeTemplate};
 use log::debug;
 use once_cell::sync::Lazy;
@@ -42,36 +42,32 @@ mod imp {
     }
 
     impl ObjectImpl for VolumeControl {
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
+        fn constructed(&self) {
+            self.parent_constructed();
 
-            obj.setup_adjustment();
-            obj.setup_controller();
+            self.obj().setup_adjustment();
+            self.obj().setup_controller();
         }
 
-        fn dispose(&self, _obj: &Self::Type) {
-            self.volume_low_image.unparent();
-            self.volume_scale.unparent();
-            self.volume_high_image.unparent();
+        fn dispose(&self) {
+            while let Some(child) = self.obj().first_child() {
+                child.unparent();
+            }
         }
 
         fn properties() -> &'static [ParamSpec] {
             static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpecDouble::new(
-                    "volume",
-                    "",
-                    "",
-                    0.0,
-                    1.0,
-                    1.0,
-                    ParamFlags::READWRITE,
-                )]
+                vec![ParamSpecDouble::builder("volume")
+                    .minimum(0.0)
+                    .maximum(1.0)
+                    .default_value(1.0)
+                    .build()]
             });
 
             PROPERTIES.as_ref()
         }
 
-        fn set_property(&self, _obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
             match pspec.name() {
                 "volume" => self.volume_scale.set_value(
                     value
@@ -82,7 +78,7 @@ mod imp {
             }
         }
 
-        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
             match pspec.name() {
                 "volume" => self.volume_scale.value().to_value(),
                 _ => unimplemented!(),
@@ -101,7 +97,7 @@ glib::wrapper! {
 
 impl Default for VolumeControl {
     fn default() -> Self {
-        glib::Object::new(&[]).expect("Failed to create VolumeControl")
+        glib::Object::new::<Self>(&[])
     }
 }
 

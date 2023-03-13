@@ -67,9 +67,9 @@ mod imp {
             PROPERTIES.as_ref()
         }
 
-        fn property(&self, obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
             match pspec.name() {
-                "current" => obj.current_song().to_value(),
+                "current" => self.obj().current_song().to_value(),
                 "repeat-mode" => self.repeat_mode.get().to_value(),
                 "n-songs" => self.store.n_items().to_value(),
                 _ => unimplemented!(),
@@ -84,7 +84,7 @@ glib::wrapper! {
 
 impl Default for Queue {
     fn default() -> Self {
-        glib::Object::new::<Self>(&[]).expect("Failed to create Queue object")
+        glib::Object::new::<Self>(&[])
     }
 }
 
@@ -319,5 +319,16 @@ impl Queue {
         }
 
         count
+    }
+
+    pub fn contains(&self, s: &Song) -> bool {
+        for i in 0..self.imp().store.n_items() {
+            let song = self.imp().store.item(i).unwrap();
+            if song.downcast_ref::<Song>().unwrap().equals(&s) {
+                return true;
+            }
+        }
+
+        false
     }
 }

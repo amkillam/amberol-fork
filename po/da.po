@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amberol main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
-"POT-Creation-Date: 2022-08-28 17:48+0000\n"
-"PO-Revision-Date: 2022-09-06 18:38+0200\n"
+"POT-Creation-Date: 2023-01-05 10:55+0000\n"
+"PO-Revision-Date: 2023-01-14 11:11+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -242,57 +242,57 @@ msgstr "Gentag"
 msgid "Main Menu"
 msgstr "Hovedmenu"
 
-#: src/gtk/playback-control.ui:177
+#: src/gtk/playback-control.ui:178
 msgctxt "a11y"
 msgid "Primary menu"
 msgstr "Primær menu"
 
-#: src/gtk/playback-control.ui:193
+#: src/gtk/playback-control.ui:194
 msgid "Copy"
 msgstr "Kopiér"
 
-#: src/gtk/playback-control.ui:199
+#: src/gtk/playback-control.ui:200
 msgid "Add _Song"
 msgstr "Tilføj _sang"
 
-#: src/gtk/playback-control.ui:203
+#: src/gtk/playback-control.ui:204
 msgid "Add _Folder"
 msgstr "Tilføj _mappe"
 
-#: src/gtk/playback-control.ui:207
+#: src/gtk/playback-control.ui:208
 msgid "Clear"
 msgstr "Ryd"
 
-#: src/gtk/playback-control.ui:213
+#: src/gtk/playback-control.ui:214
 msgid "_Match Cover Art"
 msgstr "_Tilpas til pladeomslag"
 
 # https://en.wikipedia.org/wiki/ReplayGain
-#: src/gtk/playback-control.ui:219
+#: src/gtk/playback-control.ui:220
 msgid "_ReplayGain"
 msgstr "_ReplayGain"
 
-#: src/gtk/playback-control.ui:221
+#: src/gtk/playback-control.ui:222
 msgid "_Album"
 msgstr "_Album"
 
-#: src/gtk/playback-control.ui:226
+#: src/gtk/playback-control.ui:227
 msgid "_Track"
 msgstr "_Nummer"
 
-#: src/gtk/playback-control.ui:231
+#: src/gtk/playback-control.ui:232
 msgid "_Off"
 msgstr "_Fra"
 
-#: src/gtk/playback-control.ui:239
+#: src/gtk/playback-control.ui:240
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastaturgenveje"
 
-#: src/gtk/playback-control.ui:243
+#: src/gtk/playback-control.ui:244
 msgid "_About Amberol"
 msgstr "_Om Amberol"
 
-#: src/gtk/playback-control.ui:247
+#: src/gtk/playback-control.ui:248
 msgid "_Quit"
 msgstr "Af_slut"
 
@@ -337,12 +337,8 @@ msgid "Add Folder"
 msgstr "Tilføj mappe"
 
 #: src/gtk/window.ui:68
-msgid "Add File"
-msgstr "Tilføj fil"
-
-#: src/application.rs:181
-msgid "Plays music and nothing else"
-msgstr "Afspiller musik og ikke andet"
+msgid "Add Song"
+msgstr "Tilføj sang"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:188
@@ -378,7 +374,7 @@ msgstr "Åbn fil"
 msgid "Audio files"
 msgstr "Lydfiler"
 
-#: src/window.rs:428 src/window.rs:1276
+#: src/window.rs:428 src/window.rs:1293
 msgid "Unable to access files"
 msgstr "Kan ikke tilgå filer"
 
@@ -398,40 +394,38 @@ msgstr "Kan ikke tilgå mapper"
 msgid "No available song found"
 msgstr "Ingen tilgængelige sange fundet"
 
-#: src/window.rs:523
+#: src/window.rs:532
 msgid "No songs found"
 msgstr "Ingen sange fundet"
 
-#: src/window.rs:549
+#: src/window.rs:559
 msgid "Added a new song"
 msgstr "Tilføjede en ny sang"
 
-#: src/window.rs:550
+#: src/window.rs:560
 msgid "Play"
 msgstr "Afspil"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
 #. to the playlist
-#: src/window.rs:559
+#: src/window.rs:569
 msgid "Added one song"
 msgid_plural "Added {} songs"
 msgstr[0] "Tilføjede en sang"
 msgstr[1] "Tilføjede {} sange"
 
-#: src/window.rs:1012
+#: src/window.rs:1029
 msgid "Unable to access dropped files"
 msgstr "Kan ikke tilgå droppede filer"
 
-#: src/window.rs:1106
+#: src/window.rs:1123
 msgid "{} minute"
 msgid_plural "{} minutes"
 msgstr[0] "{} minut"
 msgstr[1] "{} minutter"
 
-#: src/window.rs:1117
-#| msgid "{} minute remaining"
-#| msgid_plural "{} minutes remaining"
+#: src/window.rs:1134
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
 msgstr[0] "{hours} time {minutes} tilbage"
@@ -440,19 +434,19 @@ msgstr[1] "{hours} timer {minutes} tilbage"
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
 #. in the playlist
-#: src/window.rs:1127
+#: src/window.rs:1144
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
 msgstr[0] "{} minut tilbage"
 msgstr[1] "{} minutter tilbage"
 
-#: src/window.rs:1256
+#: src/window.rs:1273
 msgid "No song selected"
 msgstr "Ingen sang valgt"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
-#: src/window.rs:1261
+#: src/window.rs:1278
 msgid "{} song selected"
 msgid_plural "{} songs selected"
 msgstr[0] "{} sang valgt"
@@ -461,17 +455,22 @@ msgstr[1] "{} sange valgt"
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
-#: src/window.rs:1314
+#: src/window.rs:1331
 msgid "Currently playing “{title}” by “{artist}”"
 msgstr "Afspiller nu “{title}” af “{artist}”"
 
-#: src/window.rs:1360
+#: src/window.rs:1377
 msgid "Amberol needs to run in the background to play music"
 msgstr "Amberol skal køre i baggrunden for at kunne afspille musik"
 
-#: src/window.rs:1373
-msgid "Amberol cannot run in the background"
-msgstr "Amberol kan ikke køre i baggrunden"
+#~ msgid "Add File"
+#~ msgstr "Tilføj fil"
+
+#~ msgid "Plays music and nothing else"
+#~ msgstr "Afspiller musik og ikke andet"
+
+#~ msgid "Amberol cannot run in the background"
+#~ msgstr "Amberol kan ikke køre i baggrunden"
 
 #~ msgid "“{}” is not a supported audio file"
 #~ msgstr "“{}” er ikke en understøttet lydfil"

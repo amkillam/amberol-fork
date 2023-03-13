@@ -46,8 +46,8 @@ mod imp {
     }
 
     impl ObjectImpl for SongDetails {
-        fn dispose(&self, obj: &Self::Type) {
-            while let Some(child) = obj.first_child() {
+        fn dispose(&self) {
+            while let Some(child) = self.obj().first_child() {
                 child.unparent();
             }
         }
@@ -63,7 +63,7 @@ glib::wrapper! {
 
 impl Default for SongDetails {
     fn default() -> Self {
-        glib::Object::new(&[]).expect("Failed to create SongDetails")
+        glib::Object::new::<Self>(&[])
     }
 }
 

@@ -72,14 +72,14 @@ mod imp {
     }
 
     impl ObjectImpl for PlaybackControl {
-        fn dispose(&self, obj: &Self::Type) {
-            while let Some(child) = obj.first_child() {
+        fn dispose(&self) {
+            while let Some(child) = self.obj().first_child() {
                 child.unparent();
             }
         }
 
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
+        fn constructed(&self) {
+            self.parent_constructed();
 
             self.menu_button.set_primary(true);
         }
@@ -96,7 +96,7 @@ glib::wrapper! {
 
 impl Default for PlaybackControl {
     fn default() -> Self {
-        glib::Object::new(&[]).expect("Failed to create PlaybackControl")
+        glib::Object::new::<Self>(&[])
     }
 }
 

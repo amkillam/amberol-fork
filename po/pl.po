@@ -1,15 +1,15 @@
 # Polish translation for amberol.
-# Copyright © 2022 the amberol authors.
+# Copyright © 2022-2023 the amberol authors.
 # This file is distributed under the same license as the amberol package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2022.
-# Aviary.pl <community-poland@mozilla.org>, 2022.
+# Piotr Drąg <piotrdrag@gmail.com>, 2022-2023.
+# Aviary.pl <community-poland@mozilla.org>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: amberol\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
-"POT-Creation-Date: 2022-08-28 17:48+0000\n"
-"PO-Revision-Date: 2022-08-28 22:05+0200\n"
+"POT-Creation-Date: 2023-02-06 19:36+0000\n"
+"PO-Revision-Date: 2023-02-12 13:38+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -73,7 +73,7 @@ msgstr "mieszanie i powtarzanie"
 msgid "MPRIS integration"
 msgstr "integracja ze standardem MPRIS"
 
-#: data/io.bassi.Amberol.appdata.xml.in.in:41
+#: data/io.bassi.Amberol.appdata.xml.in.in:42
 msgid "Emmanuele Bassi"
 msgstr "Emmanuele Bassi"
 
@@ -81,15 +81,15 @@ msgstr "Emmanuele Bassi"
 msgid "Playback in progress"
 msgstr "Trwa odtwarzanie"
 
-#: src/audio/song.rs:328
+#: src/audio/song.rs:337
 msgid "Unknown artist"
 msgstr "Nieznany wykonawca"
 
-#: src/audio/song.rs:335
+#: src/audio/song.rs:344
 msgid "Unknown title"
 msgstr "Nieznany tytuł"
 
-#: src/audio/song.rs:342
+#: src/audio/song.rs:351
 msgid "Unknown album"
 msgstr "Nieznany album"
 
@@ -110,7 +110,7 @@ msgstr "Skopiowanie informacji o utworze do schowka"
 
 #: src/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Show Shortcuts"
+msgid "Show shortcuts"
 msgstr "Wyświetlenie skrótów"
 
 #: src/gtk/help-overlay.ui:32
@@ -155,7 +155,7 @@ msgstr "Odtwarzanie"
 
 #: src/gtk/help-overlay.ui:78
 msgctxt "shortcut window"
-msgid "Toggle Play/Pause"
+msgid "Toggle play/pause"
 msgstr "Przełączenie odtwarzania/wstrzymania"
 
 #: src/gtk/help-overlay.ui:84
@@ -246,56 +246,60 @@ msgstr "Powtarzaj"
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: src/gtk/playback-control.ui:177
+#: src/gtk/playback-control.ui:178
 msgctxt "a11y"
 msgid "Primary menu"
 msgstr "Menu główne"
 
-#: src/gtk/playback-control.ui:193
+#: src/gtk/playback-control.ui:194
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/gtk/playback-control.ui:199
+#: src/gtk/playback-control.ui:200
 msgid "Add _Song"
 msgstr "Dodaj _utwór"
 
-#: src/gtk/playback-control.ui:203
+#: src/gtk/playback-control.ui:204
 msgid "Add _Folder"
 msgstr "_Dodaj katalog"
 
-#: src/gtk/playback-control.ui:207
+#: src/gtk/playback-control.ui:208
 msgid "Clear"
 msgstr "Wyczyść"
 
-#: src/gtk/playback-control.ui:213
+#: src/gtk/playback-control.ui:214
 msgid "_Match Cover Art"
 msgstr "_Kolor okładki"
 
-#: src/gtk/playback-control.ui:219
+#: src/gtk/playback-control.ui:218
+msgid "_Background Playback"
+msgstr "_Odtwarzanie w tle"
+
+#: src/gtk/playback-control.ui:224
 msgid "_ReplayGain"
 msgstr "_ReplayGain"
 
-#: src/gtk/playback-control.ui:221
+#: src/gtk/playback-control.ui:226
 msgid "_Album"
 msgstr "_Album"
 
-#: src/gtk/playback-control.ui:226
+#: src/gtk/playback-control.ui:231
 msgid "_Track"
 msgstr "Ś_cieżka"
 
-#: src/gtk/playback-control.ui:231
+#: src/gtk/playback-control.ui:236
 msgid "_Off"
 msgstr "_Wyłączone"
 
-#: src/gtk/playback-control.ui:239
+#: src/gtk/playback-control.ui:244
 msgid "_Keyboard Shortcuts"
 msgstr "_Skróty klawiszowe"
 
-#: src/gtk/playback-control.ui:243
+#: src/gtk/playback-control.ui:248
 msgid "_About Amberol"
 msgstr "_O programie"
 
-#: src/gtk/playback-control.ui:247
+#: src/gtk/playback-control.ui:252
 msgid "_Quit"
 msgstr "Za_kończ"
 
@@ -340,19 +344,19 @@ msgid "Add Folder"
 msgstr "Dodaj katalog"
 
 #: src/gtk/window.ui:68
-msgid "Add File"
-msgstr "Dodaj plik"
-
-#: src/application.rs:181
-msgid "Plays music and nothing else"
-msgstr "Odtwarza muzykę i nic ponadto"
+msgid "Add Song"
+msgstr "Dodaj utwór"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:188
+#: src/application.rs:233
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2022\n"
-"Aviary.pl <community-poland@mozilla.org>, 2022"
+"Piotr Drąg <piotrdrag@gmail.com>, 2022-2023\n"
+"Aviary.pl <community-poland@mozilla.org>, 2022-2023"
+
+#: src/application.rs:247
+msgid "Amberol needs to run in the background to play music"
+msgstr "Amberol musi działać w tle, aby odtwarzać muzykę"
 
 #: src/playback_control.rs:157
 msgid "Repeat All Tracks"
@@ -362,76 +366,76 @@ msgstr "Powtarza wszystkie ścieżki"
 msgid "Repeat the Current Track"
 msgstr "Powtarza obecną ścieżkę"
 
-#: src/window.rs:409
+#: src/window.rs:392
 msgid "_Add Song"
 msgstr "_Dodaj utwór"
 
-#: src/window.rs:410 src/window.rs:450
+#: src/window.rs:393 src/window.rs:433
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/window.rs:412
+#: src/window.rs:395
 msgid "Open File"
 msgstr "Otwarcie pliku"
 
-#: src/window.rs:419
+#: src/window.rs:402
 msgid "Audio files"
 msgstr "Pliki dźwiękowe"
 
-#: src/window.rs:428 src/window.rs:1276
+#: src/window.rs:411 src/window.rs:1277
 msgid "Unable to access files"
 msgstr "Nie można otworzyć plików"
 
-#: src/window.rs:449
+#: src/window.rs:432
 msgid "_Add Folder"
 msgstr "_Dodaj katalog"
 
-#: src/window.rs:452
+#: src/window.rs:435
 msgid "Open Folder"
 msgstr "Otwarcie katalogu"
 
-#: src/window.rs:463
+#: src/window.rs:446
 msgid "Unable to access folders"
 msgstr "Nie można otworzyć katalogów"
 
-#: src/window.rs:475
+#: src/window.rs:458
 msgid "No available song found"
 msgstr "Nie odnaleziono dostępnego utworu"
 
-#: src/window.rs:523
+#: src/window.rs:515
 msgid "No songs found"
 msgstr "Nie odnaleziono żadnych utworów"
 
-#: src/window.rs:549
+#: src/window.rs:542
 msgid "Added a new song"
 msgstr "Dodano nowy utwór"
 
-#: src/window.rs:550
+#: src/window.rs:543
 msgid "Play"
 msgstr "Odtwórz"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
 #. to the playlist
-#: src/window.rs:559
+#: src/window.rs:552
 msgid "Added one song"
 msgid_plural "Added {} songs"
 msgstr[0] "Dodano jeden utwór"
 msgstr[1] "Dodano {} utwory"
 msgstr[2] "Dodano {} utworów"
 
-#: src/window.rs:1012
+#: src/window.rs:1013
 msgid "Unable to access dropped files"
 msgstr "Nie można otworzyć przeciągniętych plików"
 
-#: src/window.rs:1106
+#: src/window.rs:1107
 msgid "{} minute"
 msgid_plural "{} minutes"
 msgstr[0] "{} minuta"
 msgstr[1] "{} minuty"
 msgstr[2] "{} minut"
 
-#: src/window.rs:1117
+#: src/window.rs:1118
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
 msgstr[0] "Pozostała {} godzina i {minutes}"
@@ -441,20 +445,20 @@ msgstr[2] "Pozostało {} godzin i {minutes}"
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
 #. in the playlist
-#: src/window.rs:1127
+#: src/window.rs:1128
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
 msgstr[0] "Pozostała {} minuta"
 msgstr[1] "Pozostały {} minuty"
 msgstr[2] "Pozostało {} minut"
 
-#: src/window.rs:1256
+#: src/window.rs:1257
 msgid "No song selected"
 msgstr "Nie zaznaczono żadnego utworu"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
-#: src/window.rs:1261
+#: src/window.rs:1262
 msgid "{} song selected"
 msgid_plural "{} songs selected"
 msgstr[0] "Zaznaczono {} utwór"
@@ -464,14 +468,6 @@ msgstr[2] "Zaznaczono {} utworów"
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
-#: src/window.rs:1314
+#: src/window.rs:1315
 msgid "Currently playing “{title}” by “{artist}”"
 msgstr "Odtwarzanie utworu „{title}” — {artist}"
-
-#: src/window.rs:1360
-msgid "Amberol needs to run in the background to play music"
-msgstr "Amberol musi działać w tle, aby odtwarzać muzykę"
-
-#: src/window.rs:1373
-msgid "Amberol cannot run in the background"
-msgstr "Amberol nie może działać w tle"

@@ -214,6 +214,10 @@
         <attribute name="label" translatable="yes">_Match Cover Art</attribute>
         <attribute name="action">win.enable-recoloring</attribute>
       </item>
+      <item>
+        <attribute name="label" translatable="yes">_Background Playback</attribute>
+        <attribute name="action">app.background-play</attribute>
+      </item>
     </section>
     <section>
       <submenu>

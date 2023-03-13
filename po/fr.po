@@ -1,22 +1,23 @@
-# Occitan translation for amberol.
+# French translation for amberol.
 # Copyright (C) 2022 amberol's COPYRIGHT HOLDER
 # This file is distributed under the same license as the amberol package.
-# Quentin PAGÈS <pages_quentin@hotmail.com>, 2022.
+# devmatheo <dev.matheo@protonmail.com>, 2022.
+# Alexandre Franke <afranke@gnome.org>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: amberol main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
-"POT-Creation-Date: 2023-02-06 19:36+0000\n"
-"PO-Revision-Date: 2023-02-11 16:59+0100\n"
-"Last-Translator: Quentin PAGÈS\n"
-"Language-Team: Occitan <totenoc@gmail.com>\n"
-"Language: oc\n"
+"POT-Creation-Date: 2022-12-16 13:13+0000\n"
+"PO-Revision-Date: 2023-01-05 11:43+0100\n"
+"Last-Translator: Alexandre Franke <afranke@gnome.org>\n"
+"Language-Team: French - France <gnomefr@traduc.org>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/io.bassi.Amberol.desktop.in.in:3
 #: data/io.bassi.Amberol.appdata.xml.in.in:6
@@ -25,16 +26,16 @@ msgstr "Amberol"
 
 #: data/io.bassi.Amberol.desktop.in.in:4
 msgid "Music Player"
-msgstr "Lector de musica"
+msgstr "Lecteur de musique"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.bassi.Amberol.desktop.in.in:12
 msgid "music;player;media;audio;playlist;"
-msgstr "musica;lector;mèdia;audio;àudio;lista de lectura;"
+msgstr "musique;son;lecteur;média;audio;liste de lecture;"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:7
 msgid "Plays music, and nothing else"
-msgstr "Legís de musica, e pas res mai"
+msgstr "Lit de la musique et rien d’autre"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:9
 msgid ""
@@ -42,143 +43,146 @@ msgid ""
 "play music available on your local system then Amberol is the music player "
 "you are looking for."
 msgstr ""
-"Amberol es un lector àudio sens cap de volontat de grandor. Se volètz sonque "
-"escotar la musica disponible sus vòstre sistèma local, alara Amberol es lo "
-"lector àudio que vos fa mestièr."
+"Amberol est un lecteur de musique qui n’en fait pas trop. Si vous voulez "
+"simplement écouter la musique disponible sur votre ordinateur, c’est le "
+"lecteur qu’il vous faut."
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:14
 msgid "Current features:"
-msgstr "Foncionalitats actualas :"
+msgstr "Fonctionnalités actuelles :"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:16
 msgid "adaptive UI"
-msgstr "interfàcia grafica adaptativa"
+msgstr "interface utilisateur adaptative"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:17
 msgid "UI recoloring using the album art"
-msgstr "Adaptacion de las colors segon la cobertura de l’album"
+msgstr ""
+"utilisation des couleurs de la couverture de l’album pour coloriser "
+"l’interface utilisateur"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:18
 msgid "drag and drop support to queue songs"
-msgstr "lisar depausar de las cançons dins la fila"
+msgstr ""
+"prise en charge du glisser-déposer pour mettre les morceaux en fin de liste de lecture"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:19
 msgid "shuffle and repeat"
-msgstr "lectura aleatòria e repetetiva"
+msgstr "lecture aléatoire et répétition"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:20
 msgid "MPRIS integration"
-msgstr "integracion MPRIS"
+msgstr "intégration MPRIS"
 
-#: data/io.bassi.Amberol.appdata.xml.in.in:42
+#: data/io.bassi.Amberol.appdata.xml.in.in:41
 msgid "Emmanuele Bassi"
 msgstr "Emmanuele Bassi"
 
 #: src/audio/inhibit_controller.rs:40
 msgid "Playback in progress"
-msgstr "Lectura en cors"
+msgstr "Écoute en cours"
 
-#: src/audio/song.rs:337
+#: src/audio/song.rs:328
 msgid "Unknown artist"
-msgstr "Artista desconegut"
+msgstr "Artiste inconnu(e)"
 
-#: src/audio/song.rs:344
+#: src/audio/song.rs:335
 msgid "Unknown title"
-msgstr "Títol desconegut"
+msgstr "Titre inconnu"
 
-#: src/audio/song.rs:351
+#: src/audio/song.rs:342
 msgid "Unknown album"
-msgstr "Album desconegut"
+msgstr "Album inconnu"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "General"
+msgstr "Général"
 
 #: src/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
 msgid "Toggle primary menu"
-msgstr "Afichar / Amagar lo menú principal"
+msgstr "Basculer le menu principal"
 
 #: src/gtk/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Copy song details to the clipboard"
-msgstr "Copiar los detalhs de la cançon al quichapapièrs"
+msgstr "Copier les informations du morceau dans le presse-papiers"
 
 #: src/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Show shortcuts"
-msgstr "Afichar los acorchis"
+msgid "Show Shortcuts"
+msgstr "Afficher les raccourcis clavier"
 
 #: src/gtk/help-overlay.ui:32
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Quitar"
+msgstr "Quitter"
 
 #: src/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Playlist"
-msgstr "Lista de lectura"
+msgstr "Liste de lecture"
 
 #: src/gtk/help-overlay.ui:43
 msgctxt "shortcut window"
 msgid "Add a song to the playlist"
-msgstr "Apondre una cançon a la lista de lectura"
+msgstr "Ajouter un morceau à la liste de lecture"
 
 #: src/gtk/help-overlay.ui:49
 msgctxt "shortcut window"
 msgid "Add a folder to the playlist"
-msgstr "Apondre un dossièr a la lista de lectura"
+msgstr "Ajouter un dossier à la liste de lecture"
 
 #: src/gtk/help-overlay.ui:55
 msgctxt "shortcut window"
 msgid "Clear the playlist"
-msgstr "Escafar la lista de lectura"
+msgstr "Effacer la lise de lecture"
 
 #: src/gtk/help-overlay.ui:61
 msgctxt "shortcut window"
 msgid "Toggle the playlist pane"
-msgstr "Bascular lo panèl de la lista de lectura"
+msgstr "Basculer le panneau de la liste de lecture"
 
 #: src/gtk/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Toggle shuffling songs"
-msgstr "Alternar lectura aleatòria"
+msgstr "Basculer le mélange de morceaux"
 
 #: src/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Playback"
-msgstr "Lectura"
+msgstr "Lecture"
 
 #: src/gtk/help-overlay.ui:78
 msgctxt "shortcut window"
-msgid "Toggle play/pause"
-msgstr "Alternar lectura/pausa"
+msgid "Toggle Play/Pause"
+msgstr "Basculer la lecture / pause"
 
 #: src/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Previous song"
-msgstr "Cançon precedenta"
+msgstr "Morceau précédent"
 
 #: src/gtk/help-overlay.ui:90
 msgctxt "shortcut window"
 msgid "Next song"
-msgstr "Cançon seguenta"
+msgstr "Morceau suivant"
 
 #: src/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Seek backwards in the current song"
-msgstr "Anar en arrièr dins la cançon actuala"
+msgstr "Reculer dans le morceau actuel"
 
 #: src/gtk/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "Seek forward in the current song"
-msgstr "Avançar dins la cançon actuala"
+msgstr "Avancer dans le morceau actuel"
 
 #: src/gtk/playback-control.ui:30
 msgctxt "a11y"
 msgid "Elapsed time"
-msgstr "Temps passat"
+msgstr "Temps écoulé"
 
 #: src/gtk/playback-control.ui:42
 msgctxt "a11y"
@@ -187,330 +191,275 @@ msgstr "Temps restant"
 
 #: src/gtk/playback-control.ui:64
 msgid "Play the Previous Song"
-msgstr "Legir la cançon precedenta"
+msgstr "Écouter le morceau précédent"
 
 #: src/gtk/playback-control.ui:69
 msgctxt "a11y"
 msgid "Skip backwards"
-msgstr "Retorn arrièr"
+msgstr "Reculer"
 
 #: src/gtk/playback-control.ui:78
 msgid "Toggle Play"
-msgstr "Bascular la lectura"
+msgstr "Lancer la lecture"
 
 #: src/gtk/playback-control.ui:84
 msgctxt "a11y"
 msgid "Toggle play"
-msgstr "Alternar la lectura"
+msgstr "Basculer la lecture"
 
 #: src/gtk/playback-control.ui:93
 msgid "Play the Next Song"
-msgstr "Legir la cançon seguenta"
+msgstr "Lire le morceau suivant"
 
 #: src/gtk/playback-control.ui:98
 msgctxt "a11y"
 msgid "Skip forward"
-msgstr "Avançar"
+msgstr "Avancer"
 
 #: src/gtk/playback-control.ui:121
 msgid "Toggle Playlist"
-msgstr "Alternar la lista de lectura"
+msgstr "Basculer la liste de lecture"
 
 #: src/gtk/playback-control.ui:126
 msgctxt "a11y"
 msgid "Toggle playlist"
-msgstr "Alternar la lista de lectura"
+msgstr "Basculer la liste de lecture"
 
 #: src/gtk/playback-control.ui:135
 msgid "Shuffle the Playlist"
-msgstr "Mesclar la lista de lectura"
+msgstr "Mélanger la liste de lecture"
 
 #: src/gtk/playback-control.ui:137
 msgctxt "a11y"
 msgid "Shuffle"
-msgstr "Aleatòri"
+msgstr "Mélanger"
 
 #: src/gtk/playback-control.ui:156 src/playback_control.rs:153
 msgid "Enable Repeat"
-msgstr "Activa la lectura en bocla"
+msgstr "Activer la répétition"
 
 #: src/gtk/playback-control.ui:161
 msgctxt "a11y"
 msgid "Repeat"
-msgstr "Repetir"
+msgstr "Répéter"
 
 #: src/gtk/playback-control.ui:172
 msgid "Main Menu"
-msgstr "Menú principal"
+msgstr "Menu principal"
 
 #: src/gtk/playback-control.ui:178
 msgctxt "a11y"
 msgid "Primary menu"
-msgstr "Menú principal"
+msgstr "Menu principal"
 
 #: src/gtk/playback-control.ui:194
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Copier"
 
 #: src/gtk/playback-control.ui:200
 msgid "Add _Song"
-msgstr "Apondre una _cançon"
+msgstr "Ajouter un _morceau"
 
 #: src/gtk/playback-control.ui:204
 msgid "Add _Folder"
-msgstr "Apondre un _dossièr"
+msgstr "Ajouter un _dossier"
 
 #: src/gtk/playback-control.ui:208
 msgid "Clear"
-msgstr "Escafar"
+msgstr "Effacer"
 
 #: src/gtk/playback-control.ui:214
 msgid "_Match Cover Art"
-msgstr "_Assortir la cobertura"
+msgstr "_Accorder aux couleurs de l’album"
 
-#: src/gtk/playback-control.ui:218
-msgid "_Background Playback"
-msgstr "_Lectura en rèireplan"
-
-#: src/gtk/playback-control.ui:224
+#: src/gtk/playback-control.ui:220
 msgid "_ReplayGain"
-msgstr "_Volum recomandat"
+msgstr "_ReplayGain"
 
-#: src/gtk/playback-control.ui:226
+#: src/gtk/playback-control.ui:222
 msgid "_Album"
 msgstr "_Album"
 
-#: src/gtk/playback-control.ui:231
+#: src/gtk/playback-control.ui:227
 msgid "_Track"
-msgstr "_Pista"
+msgstr "_Morceau"
 
-#: src/gtk/playback-control.ui:236
+#: src/gtk/playback-control.ui:232
 msgid "_Off"
-msgstr "_Desactivat"
+msgstr ""
+
+#: src/gtk/playback-control.ui:240
+msgid "_Keyboard Shortcuts"
+msgstr "_Raccourcis clavier"
 
 #: src/gtk/playback-control.ui:244
-msgid "_Keyboard Shortcuts"
-msgstr "_Acorchis de clavièr"
+msgid "_About Amberol"
+msgstr "À _propos d’Amberol"
 
 #: src/gtk/playback-control.ui:248
-msgid "_About Amberol"
-msgstr "_A prepaus d’Amberol"
-
-#: src/gtk/playback-control.ui:252
 msgid "_Quit"
-msgstr "_Quitar"
+msgstr "_Quitter"
 
 #: src/gtk/playlist-view.ui:19
 msgid "Playlist"
-msgstr "Lista de lectura"
+msgstr "Liste de lecture"
 
 #: src/gtk/playlist-view.ui:49
 msgid "Search Songs in the Playlist"
-msgstr "Cercar de cançons dins la lista de lectura"
+msgstr "Sélectionner des morceaux dans la liste de lecture"
 
 #: src/gtk/playlist-view.ui:61
 msgid "Select Songs in the Playlist"
-msgstr "Seleccionar de cançons dins la lista de lectura"
+msgstr "Sélectionner des morceaux dans la liste de lecture"
 
 #: src/gtk/playlist-view.ui:74
 msgid "Close the Playlist"
-msgstr "Tampar la lista de lectura"
+msgstr "Fermer la liste de lecture"
 
 #: src/gtk/playlist-view.ui:135
 msgid "Select All Songs"
-msgstr "Seleccionar totas las cançons"
+msgstr "Retirer tous les morceaux"
 
 #: src/gtk/playlist-view.ui:148
 msgid "Remove Selected Songs"
-msgstr "Suprimir las cançons seleccionadas"
+msgstr "Retirer les morceaux sélectionnés"
 
 #: src/gtk/window.ui:12
 msgid "Drop a song to add it to the queue"
-msgstr "Lisar depausar una cançon per l’apondre a la fila"
+msgstr "Glissez et déposez un morceau pour l’ajouter à la liste de lecture"
 
 #: src/gtk/window.ui:49
 msgid ""
 "Select a file or a folder, or drag files from your file manager to the "
 "application window to add songs to the playlist"
 msgstr ""
-"Seleccionatz un fichièr, un dossièr o lisatz depausatz de fichièr del "
-"gestionari de fichièrs estant cap a la fenèstra de l’aplicacion per apondre "
-"las cançons a la lista de lectura"
+"Sélectionnez un fichier ou glissez et déposez des morceaux depuis le "
+"gestionnaire de fichiers vers la fenêtre de l’application pour les ajouter à "
+"la liste de lecture"
 
 #: src/gtk/window.ui:58
 msgid "Add Folder"
-msgstr "Apondre un dossièr"
+msgstr "Ajouter un dossier"
 
 #: src/gtk/window.ui:68
-msgid "Add Song"
-msgstr "Apondre una cançon"
+msgid "Add File"
+msgstr "Ajouter un fichier"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:233
+#: src/application.rs:188
 msgid "translator-credits"
-msgstr "Quentin PAGÈS"
-
-#: src/application.rs:247
-msgid "Amberol needs to run in the background to play music"
-msgstr "Amberol deu s’executar en rèireplan per legir de musica"
+msgstr "Mathéo <dev.matheo@protonmail.com>\n"
+"Alexandre Franke <afranke@gnome.org>"
 
 #: src/playback_control.rs:157
 msgid "Repeat All Tracks"
-msgstr "Repetir totas las pistas"
+msgstr "Répéter tous les morceaux"
 
 #: src/playback_control.rs:161
 msgid "Repeat the Current Track"
-msgstr "Repetir la pista actuala"
+msgstr "Répéter le morceau actuel"
 
-#: src/window.rs:392
+#: src/window.rs:409
 msgid "_Add Song"
-msgstr "Apondre una _cançon"
+msgstr "_Ajouter un morceau"
 
-#: src/window.rs:393 src/window.rs:433
+#: src/window.rs:410 src/window.rs:450
 msgid "_Cancel"
-msgstr "_Anullar"
+msgstr "A_nnuler"
 
-#: src/window.rs:395
+#: src/window.rs:412
 msgid "Open File"
-msgstr "Dobrir fichièr"
+msgstr "Ouvrir un fichier"
 
-#: src/window.rs:402
+#: src/window.rs:419
 msgid "Audio files"
-msgstr "Fichièrs àudio"
+msgstr "Fichiers audios"
 
-#: src/window.rs:411 src/window.rs:1277
+#: src/window.rs:428 src/window.rs:1276
 msgid "Unable to access files"
-msgstr "Impossible d'accedir als fichièrs"
+msgstr "Impossible d’accéder aux fichiers"
 
-#: src/window.rs:432
+#: src/window.rs:449
 msgid "_Add Folder"
-msgstr "Apondre un _dossièr"
+msgstr "_Ajouter un dossier"
 
-#: src/window.rs:435
+#: src/window.rs:452
 msgid "Open Folder"
-msgstr "Dobrir dossièr"
+msgstr "Ouvrir un dossier"
 
-#: src/window.rs:446
+#: src/window.rs:463
 msgid "Unable to access folders"
-msgstr "Impossible d'accedir als dossièrs"
+msgstr "Impossible d’accéder aux dossiers"
 
-#: src/window.rs:458
+#: src/window.rs:475
 msgid "No available song found"
-msgstr "Cap de cançon disponibla pas trobada"
+msgstr "Aucun morceau disponible trouvé"
 
-#: src/window.rs:515
+#: src/window.rs:523
 msgid "No songs found"
-msgstr "Cap de cançon pas trobada"
+msgstr "Aucun morceau trouvé"
 
-#: src/window.rs:542
+#: src/window.rs:549
 msgid "Added a new song"
-msgstr "Una cançon novèla aponduda"
+msgstr "Nouveau morceau ajouté"
 
-#: src/window.rs:543
+#: src/window.rs:550
 msgid "Play"
-msgstr "Lectura"
+msgstr "Lire"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
 #. to the playlist
-#: src/window.rs:552
+#: src/window.rs:559
 msgid "Added one song"
 msgid_plural "Added {} songs"
-msgstr[0] "Una cançon aponduda"
-msgstr[1] "{} cançons apondudas"
+msgstr[0] "Un morceau ajouté"
+msgstr[1] "{} morceaux ajoutés"
 
-#: src/window.rs:1013
+#: src/window.rs:1012
 msgid "Unable to access dropped files"
-msgstr "Impossible d'accedir als fichièrs depausats"
+msgstr "Impossible d’accéder aux fichiers déposés"
 
-#: src/window.rs:1107
+#: src/window.rs:1106
 msgid "{} minute"
 msgid_plural "{} minutes"
-msgstr[0] "{} minuta"
-msgstr[1] "{} minutas"
+msgstr[0] "{} minute"
+msgstr[1] "{} minutes"
 
-#: src/window.rs:1118
+#: src/window.rs:1117
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
-msgstr[0] "demòran {hours} ora {minutes}"
-msgstr[1] "demòran {hours} oras {minutes}"
+msgstr[0] "{hours} heure {minutes} restante"
+msgstr[1] "{hours} heures {minutes} restantes"
 
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
 #. in the playlist
-#: src/window.rs:1128
+#: src/window.rs:1127
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
-msgstr[0] "{} minuta restanta"
-msgstr[1] "{} minutas restantas"
+msgstr[0] "{} minute restante"
+msgstr[1] "{} minutes restantes"
 
-#: src/window.rs:1257
+#: src/window.rs:1256
 msgid "No song selected"
-msgstr "Cap de cançon pas seleccionada"
+msgstr "Aucun morceau sélectionné"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
-#: src/window.rs:1262
+#: src/window.rs:1261
 msgid "{} song selected"
 msgid_plural "{} songs selected"
-msgstr[0] "{} cançon seleccionada"
-msgstr[1] "{} cançons seleccionadas"
+msgstr[0] "{} morceau sélectionné"
+msgstr[1] "{} morceaux sélectionnés"
 
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
-#: src/window.rs:1315
+#: src/window.rs:1314
 msgid "Currently playing “{title}” by “{artist}”"
-msgstr "« {title} » per « {artist} » actualament en lectura"
+msgstr "Lecture de « {title} » par « {artist} »"
 
-#~ msgid "Add File"
-#~ msgstr "Apondre un fichièr"
-
-#~ msgid "Amberol cannot run in the background"
-#~ msgstr "Amberol pòt pas s’executar en rèireplan"
-
-#~ msgid "Plays music and nothing else"
-#~ msgstr "Legís de musica, e pas res mai"
-
-#~ msgid "{} hour"
-#~ msgid_plural "{} hours"
-#~ msgstr[0] "{} ora"
-#~ msgstr[1] "{} oras"
-
-#~ msgid "“{}” is not a supported audio file"
-#~ msgstr "« {} » es pas un format àudio pres en carga"
-
-#~ msgid "Unrecognized file type for “{}”"
-#~ msgstr "Tipe de fichièr pas reconegut per « {} »"
-
-#~ msgid "Amberol is running in the background"
-#~ msgstr "Amberol s’executa en rèireplan"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Songs Queue"
-#~ msgstr "Fila d'espèra"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Queue a Song"
-#~ msgstr "Metre en espèra una cançon"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Queue a Folder"
-#~ msgstr "Metre en espèra un dossièr"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Clear"
-#~ msgstr "Escafar"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Previous Track"
-#~ msgstr "Pista precedenta"
-
-#~ msgid "Playing next"
-#~ msgstr "Cançon venenta"
-
-#~ msgid "Choose a file"
-#~ msgstr "Causir un fichièr"
-
-#~ msgid "Choose a folder"
-#~ msgstr "Causir un dossièr"
+#: src/window.rs:1360
+msgid "Amberol needs to run in the background to play music"
+msgstr "Amberol doit être executé en tâche de fond pour lire de la musique"

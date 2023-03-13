@@ -1,22 +1,22 @@
-# Swedish translation for amberol.
-# Copyright © 2022, 2023 amberol's COPYRIGHT HOLDER
+# Belarusian translation for amberol.
+# Copyright (C) 2022 amberol's COPYRIGHT HOLDER
 # This file is distributed under the same license as the amberol package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2022, 2023.
-# Luna Jernberg <droidbittin@gmail.com>, 2022.
+# Yuras Shumovich <shumovichy@gmail.com>\, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: amberol main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
 "POT-Creation-Date: 2023-01-16 13:52+0000\n"
-"PO-Revision-Date: 2023-01-16 14:54+0100\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: sv\n"
+"PO-Revision-Date: 2023-01-16 21:16+0300\n"
+"Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
+"Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: data/io.bassi.Amberol.desktop.in.in:3
@@ -26,16 +26,16 @@ msgstr "Amberol"
 
 #: data/io.bassi.Amberol.desktop.in.in:4
 msgid "Music Player"
-msgstr "Musikspelare"
+msgstr "Музычны прайгравальнік"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.bassi.Amberol.desktop.in.in:12
 msgid "music;player;media;audio;playlist;"
-msgstr "musik;spelare;media;audio;spellista;"
+msgstr "player;музычны;прайгравальнік;мультымедыя;аўдыя;прайграванне;плэер;"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:7
 msgid "Plays music, and nothing else"
-msgstr "Spelar upp musik helt enkelt"
+msgstr "Прайграе музыку і больш нічога"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:9
 msgid ""
@@ -43,368 +43,364 @@ msgid ""
 "play music available on your local system then Amberol is the music player "
 "you are looking for."
 msgstr ""
-"Amberol är en musikspelare utan storhetsvansinne. Om du helt enkelt vill "
-"spela upp musik på ditt system så är Amberol musikspelaren för dig."
+"Amberol – гэта музычны прайгравальнік без маніі велічы. Калі вы проста "
+"хочаце прайграваць музыку з лакальнай сістэмы, Amberol той прайгравальнік, "
+"які вам трэба."
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:14
 msgid "Current features:"
-msgstr "Funktioner:"
+msgstr "Бягучыя магчымасці:"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:16
 msgid "adaptive UI"
-msgstr "adaptivt användargränssnitt"
+msgstr "адаптыўны інтэрфейс карыстальніка"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:17
 msgid "UI recoloring using the album art"
-msgstr "färgändring av användargränssnittet enligt albumgrafiken"
+msgstr "змяненне колеру інтэрфейсу згодна з вокладкай"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:18
 msgid "drag and drop support to queue songs"
-msgstr "stöd för att dra och släppa för att lägga låtar i kö"
+msgstr "падтрымка перацягвання для размяшчэння песень у чарзе"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:19
 msgid "shuffle and repeat"
-msgstr "blanda och upprepa"
+msgstr "выпадковы парадак і паўтор"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:20
 msgid "MPRIS integration"
-msgstr "MPRIS-integration"
+msgstr "Інтэграцыя з MPRIS"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:41
 msgid "Emmanuele Bassi"
-msgstr "Emmanuele Bassi"
+msgstr "Эмануэль Басі (Emmanuele Bassi)"
 
 #: src/audio/inhibit_controller.rs:40
 msgid "Playback in progress"
-msgstr "Uppspelning pågår"
+msgstr "Выконваецца прайграванне"
 
 #: src/audio/song.rs:328
 msgid "Unknown artist"
-msgstr "Okänd artist"
+msgstr "Невядомы выканаўца"
 
 #: src/audio/song.rs:335
 msgid "Unknown title"
-msgstr "Okänd titel"
+msgstr "Невядомая назва"
 
 #: src/audio/song.rs:342
 msgid "Unknown album"
-msgstr "Okänt album"
+msgstr "Невядомы альбом"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Allmänt"
+msgstr "Агульныя"
 
 #: src/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
 msgid "Toggle primary menu"
-msgstr "Visa/dölj primär meny"
+msgstr "Раскрыць/закрыць асноўнае меню"
 
 #: src/gtk/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Copy song details to the clipboard"
-msgstr "Kopiera låtdetaljer till urklipp"
+msgstr "Скапіяваць у буфер абмену звесткі песні"
 
 #: src/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Show shortcuts"
-msgstr "Visa kortkommandon"
+msgstr "Паказаць спалучэнні клавіш"
 
 #: src/gtk/help-overlay.ui:32
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Avsluta"
+msgstr "Выйсці"
 
 #: src/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Playlist"
-msgstr "Spellista"
+msgstr "Спіс прайгравання"
 
 #: src/gtk/help-overlay.ui:43
 msgctxt "shortcut window"
 msgid "Add a song to the playlist"
-msgstr "Lägg till en låt till spellistan"
+msgstr "Дадаць песню ў спіс прайгравання"
 
 #: src/gtk/help-overlay.ui:49
 msgctxt "shortcut window"
 msgid "Add a folder to the playlist"
-msgstr "Lägg till en mapp till spellistan"
+msgstr "Дадаць папку ў спіс прайгравання"
 
 #: src/gtk/help-overlay.ui:55
 msgctxt "shortcut window"
 msgid "Clear the playlist"
-msgstr "Töm spellistan"
+msgstr "Ачысціць спіс прайгравання"
 
 #: src/gtk/help-overlay.ui:61
 msgctxt "shortcut window"
 msgid "Toggle the playlist pane"
-msgstr "Visa/dölj spellistepanelen"
+msgstr "Паказаць/схаваць спіс прайгравання"
 
 #: src/gtk/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Toggle shuffling songs"
-msgstr "Växla blandning av låtar"
+msgstr "Уключыць/выключыць выпадковы парадак"
 
 #: src/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Playback"
-msgstr "Uppspelning"
+msgstr "Прайграванне"
 
 #: src/gtk/help-overlay.ui:78
 msgctxt "shortcut window"
 msgid "Toggle play/pause"
-msgstr "Växla uppspelning/paus"
+msgstr "Прайграванне/паўза"
 
 #: src/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Previous song"
-msgstr "Föregående låt"
+msgstr "Папярэдняя песня"
 
 #: src/gtk/help-overlay.ui:90
 msgctxt "shortcut window"
 msgid "Next song"
-msgstr "Nästa låt"
+msgstr "Наступная песня"
 
 #: src/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Seek backwards in the current song"
-msgstr "Spola bakåt i aktuell låt"
+msgstr "Пракруціць назад бягучую песню"
 
 #: src/gtk/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "Seek forward in the current song"
-msgstr "Spola framåt i aktuell låt"
+msgstr "Пракруціць наперад бягучую песню"
 
 #: src/gtk/playback-control.ui:30
 msgctxt "a11y"
 msgid "Elapsed time"
-msgstr "Åtgången tid"
+msgstr "Прайшло часу"
 
 #: src/gtk/playback-control.ui:42
 msgctxt "a11y"
 msgid "Remaining time"
-msgstr "Återstående tid"
+msgstr "Засталося часу"
 
 #: src/gtk/playback-control.ui:64
 msgid "Play the Previous Song"
-msgstr "Spela upp föregående låt"
+msgstr "Прайграць папярэднюю песню"
 
 #: src/gtk/playback-control.ui:69
 msgctxt "a11y"
 msgid "Skip backwards"
-msgstr "Hoppa bakåt"
+msgstr "Перайсці да папярэдняй"
 
 #: src/gtk/playback-control.ui:78
 msgid "Toggle Play"
-msgstr "Spela upp/pausa"
+msgstr "Прайграванне/паўза"
 
 #: src/gtk/playback-control.ui:84
 msgctxt "a11y"
 msgid "Toggle play"
-msgstr "Spela upp/pausa"
+msgstr "Прайграванне/паўза"
 
 #: src/gtk/playback-control.ui:93
 msgid "Play the Next Song"
-msgstr "Spela upp nästa låt"
+msgstr "Прайграць наступную песню"
 
 #: src/gtk/playback-control.ui:98
 msgctxt "a11y"
 msgid "Skip forward"
-msgstr "Hoppa framåt"
+msgstr "Перайсці да наступнай"
 
 #: src/gtk/playback-control.ui:121
 msgid "Toggle Playlist"
-msgstr "Visa/dölj spellista"
+msgstr "Паказаць/схаваць спіс прайгравання"
 
 #: src/gtk/playback-control.ui:126
 msgctxt "a11y"
 msgid "Toggle playlist"
-msgstr "Visa/dölj spellista"
+msgstr "Паказаць/схаваць спіс прайгравання"
 
 #: src/gtk/playback-control.ui:135
 msgid "Shuffle the Playlist"
-msgstr "Blanda spellistan"
+msgstr "Перамяшаць спіс прайгравання"
 
 #: src/gtk/playback-control.ui:137
 msgctxt "a11y"
 msgid "Shuffle"
-msgstr "Blanda"
+msgstr "Выпадковы парадак"
 
 #: src/gtk/playback-control.ui:156 src/playback_control.rs:153
 msgid "Enable Repeat"
-msgstr "Aktivera upprepning"
+msgstr "Уключыць паўтор"
 
 #: src/gtk/playback-control.ui:161
 msgctxt "a11y"
 msgid "Repeat"
-msgstr "Upprepa"
+msgstr "Паўтор"
 
 #: src/gtk/playback-control.ui:172
 msgid "Main Menu"
-msgstr "Huvudmeny"
+msgstr "Галоўнае меню"
 
 #: src/gtk/playback-control.ui:178
 msgctxt "a11y"
 msgid "Primary menu"
-msgstr "Primär meny"
+msgstr "Асноўнае меню"
 
 #: src/gtk/playback-control.ui:194
 msgid "Copy"
-msgstr "Kopiera"
+msgstr "Капіраваць"
 
 #: src/gtk/playback-control.ui:200
 msgid "Add _Song"
-msgstr "Lägg _till låt"
+msgstr "Дадаць _песню"
 
 #: src/gtk/playback-control.ui:204
 msgid "Add _Folder"
-msgstr "Lägg till _mapp"
+msgstr "Дадаць п_апку"
 
 #: src/gtk/playback-control.ui:208
 msgid "Clear"
-msgstr "Töm"
+msgstr "Ачысціць"
 
 #: src/gtk/playback-control.ui:214
 msgid "_Match Cover Art"
-msgstr "_Matcha omslagsgrafik"
+msgstr "_Супаставіць з вокладкай"
 
 #: src/gtk/playback-control.ui:220
 msgid "_ReplayGain"
-msgstr "_ReplayGain"
+msgstr "Выраўноўванне _гучнасці"
 
 #: src/gtk/playback-control.ui:222
 msgid "_Album"
-msgstr "_Album"
+msgstr "_Альбом"
 
 #: src/gtk/playback-control.ui:227
 msgid "_Track"
-msgstr "_Spår"
+msgstr "_Дарожка"
 
 #: src/gtk/playback-control.ui:232
 msgid "_Off"
-msgstr "_Av"
+msgstr "_Выключыць"
 
 #: src/gtk/playback-control.ui:240
 msgid "_Keyboard Shortcuts"
-msgstr "_Tangentbordsgenvägar"
+msgstr "_Спалучэнні клавіш"
 
 #: src/gtk/playback-control.ui:244
 msgid "_About Amberol"
-msgstr "_Om Amberol"
+msgstr "_Аб праграме"
 
 #: src/gtk/playback-control.ui:248
 msgid "_Quit"
-msgstr "A_vsluta"
+msgstr "_Выйсці"
 
 #: src/gtk/playlist-view.ui:19
 msgid "Playlist"
-msgstr "Spellista"
+msgstr "Спісы прайгравання"
 
 #: src/gtk/playlist-view.ui:49
 msgid "Search Songs in the Playlist"
-msgstr "Sök låtar i spellistan"
+msgstr "Пошук песень у спісе прайгравання"
 
 #: src/gtk/playlist-view.ui:61
 msgid "Select Songs in the Playlist"
-msgstr "Välj låtar i spellistan"
+msgstr "Выбар песень у спісе прайгравання"
 
 #: src/gtk/playlist-view.ui:74
 msgid "Close the Playlist"
-msgstr "Stäng spellistan"
+msgstr "Закрыць спіс прайгравання"
 
 #: src/gtk/playlist-view.ui:135
 msgid "Select All Songs"
-msgstr "Markera alla låtar"
+msgstr "Выбраць усе песні"
 
 #: src/gtk/playlist-view.ui:148
 msgid "Remove Selected Songs"
-msgstr "Ta bort markerade låtar"
+msgstr "Выдаліць выбраныя песні"
 
 #: src/gtk/window.ui:12
 msgid "Drop a song to add it to the queue"
-msgstr "Släpp en låt för att lägga till den till kön"
+msgstr "Перацягніце песню, каб дадаць яе ў чаргу"
 
 #: src/gtk/window.ui:49
 msgid ""
 "Select a file or a folder, or drag files from your file manager to the "
 "application window to add songs to the playlist"
 msgstr ""
-"Välj en fil eller mapp, eller dra filer från din filhanterare till "
-"programfönstret för att lägga till låtar till spellistan"
+"Выберыце файл або папку і перацягніце з файлавага менеджара ў акно праграмы, "
+"каб дадаць песні ў спіс прайгравання"
 
 #: src/gtk/window.ui:58
 msgid "Add Folder"
-msgstr "Lägg till mapp"
+msgstr "Дадаць папку"
 
 #: src/gtk/window.ui:68
 msgid "Add Song"
-msgstr "Lägg till låt"
+msgstr "Дадаць песню"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:188
 msgid "translator-credits"
-msgstr ""
-"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Luna Jernberg <droidbittin@gmail.com>\n"
-"\n"
-"Skicka synpunkter på översättningen till\n"
-"<tp-sv@listor.tp-sv.se>."
+msgstr "Юрась Шумовіч <shumovichy@gmail.com>"
 
 #: src/playback_control.rs:157
 msgid "Repeat All Tracks"
-msgstr "Upprepa alla spår"
+msgstr "Паўтараць усе дарожкі"
 
 #: src/playback_control.rs:161
 msgid "Repeat the Current Track"
-msgstr "Upprepa aktuellt spår"
+msgstr "Паўтараць бягучую дарожку"
 
 #: src/window.rs:409
 msgid "_Add Song"
-msgstr "_Lägg till låt"
+msgstr "Дадаць _песню"
 
 #: src/window.rs:410 src/window.rs:450
 msgid "_Cancel"
-msgstr "A_vbryt"
+msgstr "_Скасаваць"
 
 #: src/window.rs:412
 msgid "Open File"
-msgstr "Öppna fil"
+msgstr "Адкрыць файл"
 
 #: src/window.rs:419
 msgid "Audio files"
-msgstr "Ljudfiler"
+msgstr "Аўдыяфайлы"
 
 #: src/window.rs:428 src/window.rs:1293
 msgid "Unable to access files"
-msgstr "Kunde inte komma åt filer"
+msgstr "Немагчыма атрымаць доступ да файлаў"
 
 #: src/window.rs:449
 msgid "_Add Folder"
-msgstr "_Lägg till mapp"
+msgstr "Дадаць п_апку"
 
 #: src/window.rs:452
 msgid "Open Folder"
-msgstr "Öppna mapp"
+msgstr "Адкрыць папку"
 
 #: src/window.rs:463
 msgid "Unable to access folders"
-msgstr "Kunde inte komma åt mappar"
+msgstr "Немагчыма атрымаць доступ да папак"
 
 #: src/window.rs:475
 msgid "No available song found"
-msgstr "Ingen tillgänglig låt hittades"
+msgstr "Не знойдзена даступных песень"
 
 #: src/window.rs:532
 msgid "No songs found"
-msgstr "Inga låtar hittades"
+msgstr "Песні не знойдзены"
 
 #: src/window.rs:559
 msgid "Added a new song"
-msgstr "Lade till en ny låt"
+msgstr "Дададзена новая песня"
 
 #: src/window.rs:560
 msgid "Play"
-msgstr "Spela upp"
+msgstr "Прайграваць"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
@@ -412,24 +408,27 @@ msgstr "Spela upp"
 #: src/window.rs:569
 msgid "Added one song"
 msgid_plural "Added {} songs"
-msgstr[0] "Lade till en låt"
-msgstr[1] "Lade till {} låtar"
+msgstr[0] "Дададзена {} песня"
+msgstr[1] "Дададзена {} песні"
+msgstr[2] "Дададзена {} песень"
 
 #: src/window.rs:1029
 msgid "Unable to access dropped files"
-msgstr "Kunde inte komma åt släppta filer"
+msgstr "Немагчыма атрымаць доступ да перацягнутых файлаў"
 
 #: src/window.rs:1123
 msgid "{} minute"
 msgid_plural "{} minutes"
-msgstr[0] "{} minut"
-msgstr[1] "{} minuter"
+msgstr[0] "{} хвіліна"
+msgstr[1] "{} хвіліны"
+msgstr[2] "{} хвілін"
 
 #: src/window.rs:1134
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
-msgstr[0] "{hours} timme {minutes} kvarstår"
-msgstr[1] "{hours} timmar {minutes} kvarstår"
+msgstr[0] "Засталася {hours} гадзіна {minutes} хвіліна"
+msgstr[1] "Засталося {hours} гадзіны {minutes} хвіліны"
+msgstr[2] "Засталося {hours} гадзін {minutes} хвілін"
 
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
@@ -437,91 +436,36 @@ msgstr[1] "{hours} timmar {minutes} kvarstår"
 #: src/window.rs:1144
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
-msgstr[0] "{} minut kvarstår"
-msgstr[1] "{} minuter kvarstår"
+msgstr[0] "Засталася {} хвіліна"
+msgstr[1] "Засталося {} хвіліны"
+msgstr[2] "Засталося {} хвілін"
 
 #: src/window.rs:1273
 msgid "No song selected"
-msgstr "Ingen låt markerad"
+msgstr "Няма выбраных песень"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
 #: src/window.rs:1278
 msgid "{} song selected"
 msgid_plural "{} songs selected"
-msgstr[0] "{} låt markerad"
-msgstr[1] "{} låtar markerade"
+msgstr[0] "Выбрана {} песня"
+msgstr[1] "Выбрана {} песні"
+msgstr[2] "Выбрана {} песень"
 
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
 #: src/window.rs:1331
 msgid "Currently playing “{title}” by “{artist}”"
-msgstr "Spelar nu ”{title}” av ”{artist}”"
+msgstr "Зараз прайграецца {title} - {artist}"
 
 #: src/window.rs:1377
 msgid "Amberol needs to run in the background to play music"
-msgstr "Amberol behöver köras i bakgrunden för att spela upp musik"
+msgstr "Каб прайграваць музыку, Amberol патрабуецца працаваць у фонавым рэжыме"
 
 #~ msgid "Add File"
-#~ msgstr "Lägg till fil"
-
-#~ msgid "Plays music and nothing else"
-#~ msgstr "Spelar upp musik helt enkelt"
+#~ msgstr "Дадаць файл"
 
 #~ msgid "Amberol cannot run in the background"
-#~ msgstr "Amberol kan inte köras i bakgrunden"
-
-#~ msgid "{} hour"
-#~ msgid_plural "{} hours"
-#~ msgstr[0] "{} timme"
-#~ msgstr[1] "{} timmar"
-
-#~ msgid "“{}” is not a supported audio file"
-#~ msgstr "Ljudfilen ”{}” stöds inte"
-
-#~ msgid "Unrecognized file type for “{}”"
-#~ msgstr "Okänd filtyp för ”{}”"
-
-#~ msgid "Amberol is running in the background"
-#~ msgstr "Amberol körs i bakgrunden"
-
-#~ msgid "Playing next"
-#~ msgstr "Spelar härnäst"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Songs Queue"
-#~ msgstr "Låtkö"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Queue a Song"
-#~ msgstr "Lägg en låt i kö"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Queue a Folder"
-#~ msgstr "Lägg en mapp i kö"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Clear"
-#~ msgstr "Töm"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Previous Track"
-#~ msgstr "Föregående spår"
-
-#~ msgid "Choose a file"
-#~ msgstr "Välj en fil"
-
-#~ msgid "Choose a folder"
-#~ msgstr "Välj en mapp"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Seek Backwards"
-#~ msgstr "Spola bakåt"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Seek Forward"
-#~ msgstr "Spola framåt"
-
-#~ msgid "Show the playlist"
-#~ msgstr "Visa spellistan"
+#~ msgstr "Amberol не можа працаваць у фонавым рэжыме"

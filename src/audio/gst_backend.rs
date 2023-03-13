@@ -24,8 +24,8 @@ pub struct GstReplayGain {
 
 impl GstReplayGain {
     pub fn new() -> Result<GstReplayGain, Box<dyn std::error::Error>> {
-        let rg_volume = gst::ElementFactory::make("rgvolume", Some("rg volume"))?;
-        let rg_limiter = gst::ElementFactory::make("rglimiter", Some("rg limiter"))?;
+        let rg_volume = gst::ElementFactory::make_with_name("rgvolume", Some("rg volume"))?;
+        let rg_limiter = gst::ElementFactory::make_with_name("rglimiter", Some("rg limiter"))?;
 
         let filter_bin = gst::Bin::new(Some("filter bin"));
         filter_bin.add(&rg_volume)?;
@@ -49,7 +49,7 @@ impl GstReplayGain {
     }
 
     pub fn set_mode(&self, playbin: gst::Element, replaygain: ReplayGainMode) {
-        let identity = gst::ElementFactory::make("identity", Some("identity")).unwrap();
+        let identity = gst::ElementFactory::make_with_name("identity", None).unwrap();
 
         let (filter, album_mode) = match replaygain {
             ReplayGainMode::Album => (self.rg_filter_bin.as_ref(), true),
@@ -66,7 +66,7 @@ impl GstBackend {
     pub fn new(sender: Sender<PlaybackAction>) -> Self {
         let dispatcher = gst_player::PlayerGMainContextSignalDispatcher::new(None);
         let gst_player = gst_player::Player::new(
-            None,
+            None::<&gst_player::PlayerVideoRenderer>,
             Some(&dispatcher.upcast::<gst_player::PlayerSignalDispatcher>()),
         );
         gst_player.set_video_track_enabled(false);

@@ -165,7 +165,12 @@ impl SongData {
         let properties = lofty::AudioFile::properties(&tagged_file);
         let duration = properties.duration().as_secs();
 
-        debug!("Song loading time: {} ms", now.elapsed().as_millis());
+        debug!(
+            "Song {:?} ('{:?}') loading time: {} ms",
+            &uuid,
+            &title,
+            now.elapsed().as_millis()
+        );
 
         SongData {
             artist,
@@ -248,9 +253,10 @@ mod imp {
             PROPERTIES.as_ref()
         }
 
-        fn set_property(&self, obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
             match pspec.name() {
                 "uri" => {
+                    let obj = self.obj();
                     if let Ok(p) = value.get::<&str>() {
                         self.data.replace(SongData::from_uri(p));
                         obj.notify("artist");
@@ -272,7 +278,8 @@ mod imp {
             }
         }
 
-        fn property(&self, obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
+            let obj = self.obj();
             match pspec.name() {
                 "artist" => obj.artist().to_value(),
                 "title" => obj.title().to_value(),
@@ -294,7 +301,9 @@ glib::wrapper! {
 
 impl Song {
     pub fn new(uri: &str) -> Self {
-        glib::Object::new::<Self>(&[("uri", &uri)]).expect("Failed to create Song object")
+        glib::Object::builder::<Self>()
+            .property("uri", &uri)
+            .build()
     }
 
     pub fn from_uri(uri: &str) -> Result<Song, &'static str> {
@@ -307,7 +316,7 @@ impl Song {
     }
 
     pub fn empty() -> Self {
-        glib::Object::new::<Self>(&[]).expect("Failed to create an empty Song object")
+        glib::Object::new::<Self>(&[])
     }
 
     pub fn equals(&self, other: &Self) -> bool {

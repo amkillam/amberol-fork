@@ -9,12 +9,12 @@ use glib::clone;
 use gtk::{gdk, gio, glib, prelude::*};
 use log::{debug, warn};
 
-use lofty::{Accessor, Tag, TagType};
+use lofty::{Accessor, Tag, TagType, TaggedFileExt};
 
 use crate::{
     audio::{Queue, Song},
     config::APPLICATION_ID,
-}
+};
 
 pub fn settings_manager() -> gio::Settings {
     // We ship a single schema for both default and development profiles
@@ -415,7 +415,11 @@ pub fn get_file_sort_key(file: &gio::File) -> String {
     let tag = tagged_file
         .primary_tag()
         .unwrap_or(tagged_file.first_tag().unwrap_or(&default_tag));
-    let mut artist = tag.artist().unwrap_or("0").to_lowercase();
+    let mut artist = tag
+        .artist()
+        .unwrap_or(std::borrow::Cow::Borrowed("0"))
+        .to_string()
+        .to_lowercase();
 
     //Some artist metadata separates multiple artists by semicolons or commas - quick and dirty way of dealing with that.
     if artist.find(';') == None {
@@ -424,7 +428,10 @@ pub fn get_file_sort_key(file: &gio::File) -> String {
         artist = artist.split(';').next().unwrap_or("0").to_string();
     }
 
-    let album = tag.album().unwrap_or("0");
+    let album = tag
+        .album()
+        .unwrap_or(std::borrow::Cow::Borrowed("0"))
+        .to_string();
     let track = tag.track().unwrap_or(0).to_string();
     let mut sort_key = String::new();
     sort_key.push_str(&artist);

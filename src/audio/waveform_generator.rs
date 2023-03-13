@@ -30,7 +30,7 @@ mod imp {
     }
 
     impl ObjectImpl for WaveformGenerator {
-        fn dispose(&self, _obj: &Self::Type) {
+        fn dispose(&self) {
             if let Some(pipeline) = self.pipeline.take() {
                 pipeline.send_event(gst::event::Eos::new());
                 match pipeline.set_state(gst::State::Null) {

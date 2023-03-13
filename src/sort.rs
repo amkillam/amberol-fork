@@ -62,7 +62,7 @@ mod imp {
                 let item2_score = matcher.fuzzy_match(&item2_key, search);
                 item1_score.cmp(&item2_score).reverse().into()
             } else {
-                cmp_two_files(None, &item1.file(), &item2.file()).into()
+                cmp_two_files(&item1.file(), &item2.file()).into()
             }
         }
 

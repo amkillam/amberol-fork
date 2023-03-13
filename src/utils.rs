@@ -424,6 +424,12 @@ pub fn get_file_sort_key(file: &gio::File) -> String {
     sort_key
 }
 
+pub fn cmp_two_files(a: &gio::File, b: &gio::File) -> Ordering {
+    let a_key = get_file_sort_key(a);
+    let b_key = get_file_sort_key(b);
+    a_key.cmp(&b_key)
+}
+
 pub fn load_files_from_folder(folder: &gio::File, recursive: bool) -> Vec<gio::File> {
     use std::time::Instant;
 

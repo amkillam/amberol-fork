@@ -397,7 +397,7 @@ fn load_files_from_folder_internal(
 }
 
 pub fn get_file_sort_key(file: &gio::File) -> String {
-    //Final sort key will look like: artist-album-track
+    //Final sort key will look like: artistalbumtrack
 
     let file_path = file.path().expect("Unable to find file");
     let tagged_file = match lofty::read_from_path(&file_path) {
@@ -411,14 +411,20 @@ pub fn get_file_sort_key(file: &gio::File) -> String {
     let tag = tagged_file
         .primary_tag()
         .unwrap_or(tagged_file.first_tag().unwrap_or(&default_tag));
-    let artist = tag.artist().unwrap_or("0");
+    let mut artist = tag.artist().unwrap_or("0").to_lowercase();
+
+    //Some artist metadata separates multiple artists by semicolons or commas - quick and dirty way of dealing with that.
+    if artist.find(';') == None {
+        artist = artist.split(',').next().unwrap_or("0").to_string();
+    } else {
+        artist = artist.split(';').next().unwrap_or("0").to_string();
+    }
+
     let album = tag.album().unwrap_or("0");
     let track = tag.track().unwrap_or(0).to_string();
     let mut sort_key = String::new();
     sort_key.push_str(&artist);
-    sort_key.push('-');
     sort_key.push_str(&album);
-    sort_key.push('-');
     sort_key.push_str(&track);
 
     sort_key

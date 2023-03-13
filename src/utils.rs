@@ -397,126 +397,38 @@ fn load_files_from_folder_internal(
     // implicit order; if anything, this will queue songs in the same
     // order in which they appear in the directory when browsing its
     // contents
-    files.sort_by(|a, b| cmp_two_files(Some(base), a, b));
+    // files.sort_by(|a, b| cmp_two_files(Some(base), a, b));
+    files.sort_by_cached_key(|a| get_file_sort_key(a));
 
     files
 }
 
-pub fn cmp_two_files(base: Option<&gio::File>, a: &gio::File, b: &gio::File) -> Ordering {
-    let parent_a = a.parent().unwrap();
-    let parent_b = b.parent().unwrap();
-    let parent_basename_a = if let Some(base) = base {
-        if let Some(path) = base.relative_path(&parent_a) {
-            path
-        } else {
-            parent_a.basename().unwrap()
-        }
-    } else {
-        parent_a.basename().unwrap()
-    };
-    let parent_basename_b = if let Some(base) = base {
-        if let Some(path) = base.relative_path(&parent_b) {
-            path
-        } else {
-            parent_b.basename().unwrap()
-        }
-    } else {
-        parent_b.basename().unwrap()
-    };
-    let basename_a = a.basename().unwrap();
-    let basename_b = b.basename().unwrap();
+pub fn get_file_sort_key(file: &gio::File) -> String {
+    //Final sort key will look like: artist-album-track
 
-    let mut order = cmp_by_artist_album_track_number(a, b);
-
-    if order.is_eq() {
-        order = cmp_like_nautilus(&basename_a.to_string_lossy(), &basename_b.to_string_lossy())
-    }
-
-    order
-}
-
-fn cmp_like_nautilus(filename_a: &str, filename_b: &str) -> Ordering {
-    let order;
-
-    let sort_last_a = filename_a.as_bytes()[0] == b'.' || filename_a.as_bytes()[0] == b'#';
-    let sort_last_b = filename_b.as_bytes()[0] == b'.' || filename_b.as_bytes()[0] == b'#';
-
-    if !sort_last_a && sort_last_b {
-        order = Ordering::Less;
-    } else if sort_last_a && !sort_last_b {
-        order = Ordering::Greater;
-    } else {
-        let key_a = glib::FilenameCollationKey::from(filename_a);
-        let key_b = glib::FilenameCollationKey::from(filename_b);
-        order = key_a.partial_cmp(&key_b).unwrap();
-    }
-
-    order
-}
-
-fn cmp_by_artist_album_track_number(a: &gio::File, b: &gio::File) -> Ordering {
-    let path_a = a.path().expect("Unable to find file");
-    let tagged_file_a = match lofty::read_from_path(&path_a) {
+    let file_path = file.path().expect("Unable to find file");
+    let tagged_file = match lofty::read_from_path(&file_path) {
         Ok(f) => f,
         Err(e) => {
-            warn!("Unable to open file {:?}: {}", path_a, e);
-            return Ordering::Equal;
-        }
-    };
-
-    let path_b = b.path().expect("Unable to find file");
-    let tagged_file_b = match lofty::read_from_path(&path_b) {
-        Ok(f) => f,
-        Err(e) => {
-            warn!("Unable to open file {:?}: {}", path_b, e);
-            return Ordering::Equal;
+            warn!("Unable to open file {:?}: {}", file_path, e);
+            return String::new();
         }
     };
     let default_tag = Tag::new(TagType::ID3v2);
-    let artist_a = tagged_file_a
+    let tag = tagged_file
         .primary_tag()
-        .unwrap_or(&default_tag)
-        .artist()
-        .unwrap_or("0");
-    let artist_b = tagged_file_b
-        .primary_tag()
-        .unwrap_or(&default_tag)
-        .artist()
-        .unwrap_or("0");
-    let mut order = artist_a.cmp(&artist_b);
+        .unwrap_or(tagged_file.first_tag().unwrap_or(&default_tag));
+    let artist = tag.artist().unwrap_or("0");
+    let album = tag.album().unwrap_or("0");
+    let track = tag.track().unwrap_or(0).to_string();
+    let mut sort_key = String::new();
+    sort_key.push_str(&artist);
+    sort_key.push('-');
+    sort_key.push_str(&album);
+    sort_key.push('-');
+    sort_key.push_str(&track);
 
-    if order.is_eq() {
-        let album_a = tagged_file_a
-            .primary_tag()
-            .unwrap_or(&default_tag)
-            .album()
-            .unwrap_or("0");
-        let album_b = tagged_file_b
-            .primary_tag()
-            .unwrap_or(&default_tag)
-            .album()
-            .unwrap_or("0");
-        order = album_a.cmp(&album_b);
-
-        if order.is_eq() {
-            let track_number_a = tagged_file_a
-                .primary_tag()
-                .unwrap_or(&default_tag)
-                .track()
-                .unwrap_or(0);
-            let track_number_b = tagged_file_b
-                .primary_tag()
-                .unwrap_or(&default_tag)
-                .track()
-                .unwrap_or(0);
-            order = track_number_a.cmp(&track_number_b);
-            order
-        } else {
-            order
-        }
-    } else {
-        order
-    }
+    sort_key
 }
 
 pub fn load_files_from_folder(folder: &gio::File, recursive: bool) -> Vec<gio::File> {

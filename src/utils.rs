@@ -8,6 +8,8 @@ use color_thief::{get_palette, ColorFormat};
 use gtk::{gdk, gio, glib, prelude::*};
 use log::{debug, warn};
 
+use lofty::{Accessor, Tag, TagType};
+
 use crate::config::APPLICATION_ID;
 
 pub fn settings_manager() -> gio::Settings {
@@ -458,7 +460,7 @@ fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
     let tagged_file_a = match lofty::read_from_path(&path_a) {
         Ok(f) => f,
         Err(e) => {
-            warn!("Unable to open file {:?}: {}", path, e);
+            warn!("Unable to open file {:?}: {}", path_a, e);
             return Ordering::Equal;
         }
     };
@@ -467,15 +469,13 @@ fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
     let tagged_file_b = match lofty::read_from_path(&path_b) {
         Ok(f) => f,
         Err(e) => {
-            warn!("Unable to open file {:?}: {}", path, e);
+            warn!("Unable to open file {:?}: {}", path_b, e);
             return Ordering::Equal;
         }
     };
-
-    let track_number_a = tagged_file_a.track().unwrap_or(0);
-    let track_number_b = tagged_file_b.track().unwrap_or(0);
-
-    order = track_number_a.cmp(&track_number_b);
+    let track_number_a = tagged_file_a.primary_tag().unwrap_or(&Tag::new(TagType::ID3v2)).track().unwrap_or(0);
+    let track_number_b = tagged_file_b.primary_tag().unwrap_or(&Tag::new(TagType::ID3v2)).track().unwrap_or(0);
+    let order = track_number_a.cmp(&track_number_b);
 
     order
 

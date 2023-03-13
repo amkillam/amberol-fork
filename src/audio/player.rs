@@ -12,7 +12,7 @@ use crate::{
     application::ApplicationAction,
     audio::{
         Controller, CoverCache, GstBackend, InhibitController, MprisController, PlayerState, Queue,
-        Song,
+        Song, WaveformGenerator,
     },
 };
 
@@ -111,6 +111,7 @@ pub struct AudioPlayer {
     controllers: Vec<Box<dyn Controller>>,
     queue: Queue,
     state: PlayerState,
+    waveform_generator: WaveformGenerator,
 }
 
 impl fmt::Debug for AudioPlayer {
@@ -132,6 +133,9 @@ impl AudioPlayer {
         let inhibit_controller = InhibitController::new();
         controllers.push(Box::new(inhibit_controller));
 
+        let waveform_generator = WaveformGenerator::new();
+        controllers.push(Box::new(waveform_generator.clone()));
+
         let backend = GstBackend::new(sender);
 
         let queue = Queue::default();
@@ -144,6 +148,7 @@ impl AudioPlayer {
             controllers,
             queue,
             state,
+            waveform_generator,
         });
 
         res.clone().setup_channel();
@@ -432,6 +437,10 @@ impl AudioPlayer {
 
     pub fn state(&self) -> &PlayerState {
         &self.state
+    }
+
+    pub fn waveform_generator(&self) -> &WaveformGenerator {
+        &self.waveform_generator
     }
 
     pub fn set_current_song(&self, song: Option<Song>) {

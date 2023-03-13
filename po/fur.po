@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amberol main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/amberol/issues\n"
-"POT-Creation-Date: 2023-01-05 15:51+0000\n"
-"PO-Revision-Date: 2023-01-08 01:44+0000\n"
-"Last-Translator: Fabio T. <f.t.public@gmail.com>\n"
+"POT-Creation-Date: 2023-02-22 13:07+0000\n"
+"PO-Revision-Date: 2023-03-10 08:53+0100\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Editor: HaiPO 1.4 beta\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/io.bassi.Amberol.desktop.in.in:3
 #: data/io.bassi.Amberol.appdata.xml.in.in:6
@@ -27,8 +28,7 @@ msgstr "Amberol"
 msgid "Music Player"
 msgstr "Riprodutôr musicâl"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.bassi.Amberol.desktop.in.in:12
 msgid "music;player;media;audio;playlist;"
 msgstr "musiche;riprodutôr;multimedia;audio;liste di riproduzion;"
@@ -39,8 +39,8 @@ msgstr "Al riprodûs musiche e nuie altri"
 
 #: data/io.bassi.Amberol.appdata.xml.in.in:9
 msgid ""
-"Amberol is a music player with no delusions of grandeur. If you just want to"
-" play music available on your local system then Amberol is the music player "
+"Amberol is a music player with no delusions of grandeur. If you just want to "
+"play music available on your local system then Amberol is the music player "
 "you are looking for."
 msgstr ""
 "Amberol al è un riprodutôr musicâl cence delusions di grandece. Se tu "
@@ -71,7 +71,7 @@ msgstr "messede e ripet"
 msgid "MPRIS integration"
 msgstr "Integrazion MPRIS"
 
-#: data/io.bassi.Amberol.appdata.xml.in.in:41
+#: data/io.bassi.Amberol.appdata.xml.in.in:42
 msgid "Emmanuele Bassi"
 msgstr "Emmanuele Bassi"
 
@@ -79,15 +79,15 @@ msgstr "Emmanuele Bassi"
 msgid "Playback in progress"
 msgstr "Riproduzion in vore"
 
-#: src/audio/song.rs:328
+#: src/audio/song.rs:337
 msgid "Unknown artist"
 msgstr "Artist no cognossût"
 
-#: src/audio/song.rs:335
+#: src/audio/song.rs:344
 msgid "Unknown title"
 msgstr "Titul no cognossût"
 
-#: src/audio/song.rs:342
+#: src/audio/song.rs:351
 msgid "Unknown album"
 msgstr "Album no cognossût"
 
@@ -108,7 +108,7 @@ msgstr "Copie i detais de cjançon intes notis"
 
 #: src/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Show Shortcuts"
+msgid "Show shortcuts"
 msgstr "Mostre scurtis"
 
 #: src/gtk/help-overlay.ui:32
@@ -153,8 +153,8 @@ msgstr "Riproduzion"
 
 #: src/gtk/help-overlay.ui:78
 msgctxt "shortcut window"
-msgid "Toggle Play/Pause"
-msgstr "Comute Riprodûs/Pause"
+msgid "Toggle play/pause"
+msgstr "Comute riprodûs/pause"
 
 #: src/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
@@ -176,124 +176,128 @@ msgctxt "shortcut window"
 msgid "Seek forward in the current song"
 msgstr "Cîr indenant in cheste cjançon"
 
-#: src/gtk/playback-control.ui:30
+#: src/gtk/playback-control.ui:35
 msgctxt "a11y"
 msgid "Elapsed time"
 msgstr "Timp passât"
 
-#: src/gtk/playback-control.ui:42
+#: src/gtk/playback-control.ui:47
 msgctxt "a11y"
 msgid "Remaining time"
 msgstr "Timp che al reste"
 
-#: src/gtk/playback-control.ui:64
+#: src/gtk/playback-control.ui:69
 msgid "Play the Previous Song"
 msgstr "Riprodûs la cjançon precedente"
 
-#: src/gtk/playback-control.ui:69
+#: src/gtk/playback-control.ui:74
 msgctxt "a11y"
 msgid "Skip backwards"
 msgstr "Salte indaûr"
 
-#: src/gtk/playback-control.ui:78
+#: src/gtk/playback-control.ui:83
 msgid "Toggle Play"
 msgstr "Comute Riprodûs"
 
-#: src/gtk/playback-control.ui:84
+#: src/gtk/playback-control.ui:89
 msgctxt "a11y"
 msgid "Toggle play"
 msgstr "Comute riprodûs"
 
-#: src/gtk/playback-control.ui:93
+#: src/gtk/playback-control.ui:98
 msgid "Play the Next Song"
 msgstr "Riprodûs la cjançon sucessive"
 
-#: src/gtk/playback-control.ui:98
+#: src/gtk/playback-control.ui:103
 msgctxt "a11y"
 msgid "Skip forward"
 msgstr "Salte indenant"
 
-#: src/gtk/playback-control.ui:121
+#: src/gtk/playback-control.ui:126
 msgid "Toggle Playlist"
 msgstr "Comute liste di riproduzion"
 
-#: src/gtk/playback-control.ui:126
+#: src/gtk/playback-control.ui:131
 msgctxt "a11y"
 msgid "Toggle playlist"
 msgstr "Comute liste di riproduzion"
 
-#: src/gtk/playback-control.ui:135
+#: src/gtk/playback-control.ui:140
 msgid "Shuffle the Playlist"
 msgstr "Messede la liste di riproduzion"
 
-#: src/gtk/playback-control.ui:137
+#: src/gtk/playback-control.ui:142
 msgctxt "a11y"
 msgid "Shuffle"
 msgstr "Messede"
 
-#: src/gtk/playback-control.ui:156 src/playback_control.rs:153
+#: src/gtk/playback-control.ui:161 src/playback_control.rs:153
 msgid "Enable Repeat"
 msgstr "Abilite Ripeti"
 
-#: src/gtk/playback-control.ui:161
+#: src/gtk/playback-control.ui:166
 msgctxt "a11y"
 msgid "Repeat"
 msgstr "Ripet"
 
-#: src/gtk/playback-control.ui:172
+#: src/gtk/playback-control.ui:177
 msgid "Main Menu"
 msgstr "Menù principâl"
 
-#: src/gtk/playback-control.ui:178
+#: src/gtk/playback-control.ui:183
 msgctxt "a11y"
 msgid "Primary menu"
 msgstr "Menù primari"
 
-#: src/gtk/playback-control.ui:194
+#: src/gtk/playback-control.ui:199
 msgid "Copy"
 msgstr "Copie"
 
-#: src/gtk/playback-control.ui:200
+#: src/gtk/playback-control.ui:205
 msgid "Add _Song"
 msgstr "Zonte _cjançon"
 
-#: src/gtk/playback-control.ui:204
+#: src/gtk/playback-control.ui:209
 msgid "Add _Folder"
 msgstr "Zonte c_artele"
 
-#: src/gtk/playback-control.ui:208
+#: src/gtk/playback-control.ui:213
 msgid "Clear"
 msgstr "Nete"
 
-#: src/gtk/playback-control.ui:214
+#: src/gtk/playback-control.ui:219
 msgid "_Match Cover Art"
 msgstr "_Imbine ae grafiche de cuvierte"
 
-#: src/gtk/playback-control.ui:220
+#: src/gtk/playback-control.ui:223
+msgid "_Background Playback"
+msgstr "Riproduzion in _sotfont"
+
+#: src/gtk/playback-control.ui:229
 msgid "_ReplayGain"
 msgstr "_ReplayGain"
 
-#: src/gtk/playback-control.ui:222
+#: src/gtk/playback-control.ui:231
 msgid "_Album"
 msgstr "_Album"
 
-#: src/gtk/playback-control.ui:227
+#: src/gtk/playback-control.ui:236
 msgid "_Track"
 msgstr "_Linie"
 
-#: src/gtk/playback-control.ui:232
+#: src/gtk/playback-control.ui:241
 msgid "_Off"
 msgstr "_Disativât"
 
-#: src/gtk/playback-control.ui:240
+#: src/gtk/playback-control.ui:249
 msgid "_Keyboard Shortcuts"
 msgstr "Scurtis di _tastiere"
 
-#: src/gtk/playback-control.ui:244
+#: src/gtk/playback-control.ui:253
 msgid "_About Amberol"
 msgstr "_Informazions su Amberol"
 
-#: src/gtk/playback-control.ui:248
+#: src/gtk/playback-control.ui:257
 msgid "_Quit"
 msgstr "_Jes"
 
@@ -335,18 +339,25 @@ msgstr ""
 "riproduzion"
 
 #: src/gtk/window.ui:58
+msgid "Restore Playlist"
+msgstr "Ripristine liste di riproduzion"
+
+#: src/gtk/window.ui:68
 msgid "Add Folder"
 msgstr "Zonte cartele"
 
-#: src/gtk/window.ui:68
+#: src/gtk/window.ui:77
 msgid "Add Song"
 msgstr "Zonte cjançon"
 
-#. Translators: Replace "translator-credits" with your names, one name per
-#. line
-#: src/application.rs:188
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.rs:233
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
+
+#: src/application.rs:247
+msgid "Amberol needs to run in the background to play music"
+msgstr "Par riprodusi musiche Amberol al scugne zirâ in sotfont"
 
 #: src/playback_control.rs:157
 msgid "Repeat All Tracks"
@@ -356,74 +367,74 @@ msgstr "Ripet dutis lis liniis"
 msgid "Repeat the Current Track"
 msgstr "Ripet la linie corinte"
 
-#: src/window.rs:409
+#: src/window.rs:397
 msgid "_Add Song"
 msgstr "_Zonte cjançon"
 
-#: src/window.rs:410 src/window.rs:450
+#: src/window.rs:398 src/window.rs:438
 msgid "_Cancel"
 msgstr "_Anule"
 
-#: src/window.rs:412
+#: src/window.rs:400
 msgid "Open File"
 msgstr "Vierç file"
 
-#: src/window.rs:419
+#: src/window.rs:407
 msgid "Audio files"
 msgstr "Files audio"
 
-#: src/window.rs:428 src/window.rs:1293
+#: src/window.rs:416 src/window.rs:1306
 msgid "Unable to access files"
 msgstr "Impussibil acedi ai files"
 
-#: src/window.rs:449
+#: src/window.rs:437
 msgid "_Add Folder"
 msgstr "_Zonte cartele"
 
-#: src/window.rs:452
+#: src/window.rs:440
 msgid "Open Folder"
 msgstr "Vierç cartele"
 
-#: src/window.rs:463
+#: src/window.rs:451
 msgid "Unable to access folders"
 msgstr "Impussibil acedi aes cartelis"
 
-#: src/window.rs:475
+#: src/window.rs:469
 msgid "No available song found"
 msgstr "Nissune cjançon disponibile cjatade"
 
-#: src/window.rs:532
+#: src/window.rs:526
 msgid "No songs found"
 msgstr "Nissune cjançon cjatade"
 
-#: src/window.rs:559
+#: src/window.rs:556
 msgid "Added a new song"
 msgstr "Zontade une gnove cjançon"
 
-#: src/window.rs:560
+#: src/window.rs:557
 msgid "Play"
 msgstr "Riprodûs"
 
 #. Translators: the `{}` must be left unmodified;
 #. it will be expanded to the number of songs added
 #. to the playlist
-#: src/window.rs:569
+#: src/window.rs:566
 msgid "Added one song"
 msgid_plural "Added {} songs"
 msgstr[0] "Zontade une cjançon"
 msgstr[1] "Zontadis {} cjançons"
 
-#: src/window.rs:1029
+#: src/window.rs:1056
 msgid "Unable to access dropped files"
 msgstr "Impussibil acedi ai files molâts"
 
-#: src/window.rs:1123
+#: src/window.rs:1149
 msgid "{} minute"
 msgid_plural "{} minutes"
 msgstr[0] "{} minût"
 msgstr[1] "{} minûts"
 
-#: src/window.rs:1134
+#: src/window.rs:1160
 msgid "{hours} hour {minutes} remaining"
 msgid_plural "{hours} hours {minutes} remaining"
 msgstr[0] "a restin {hours} ore {minutes}"
@@ -432,19 +443,19 @@ msgstr[1] "a restin {hours} oris {minutes}"
 #. Translators: the '{}' must be left unmodified, and
 #. it will be replaced by the number of minutes remaining
 #. in the playlist
-#: src/window.rs:1144
+#: src/window.rs:1170
 msgid "{} minute remaining"
 msgid_plural "{} minutes remaining"
 msgstr[0] "al reste {} minût"
 msgstr[1] "a restin {} minûts"
 
-#: src/window.rs:1273
+#: src/window.rs:1286
 msgid "No song selected"
 msgstr "Nissune cjançon selezionade"
 
 #. Translators: The '{}' must be left unmodified, and
 #. it is expanded to the number of songs selected
-#: src/window.rs:1278
+#: src/window.rs:1291
 msgid "{} song selected"
 msgid_plural "{} songs selected"
 msgstr[0] "{} cjançon selezionade"
@@ -453,10 +464,6 @@ msgstr[1] "{} cjançons selezionadis"
 #. Translators: `{title}` and `{artist}` must be left
 #. untranslated; they will expand to the title and
 #. artist of the currently playing song, respectively
-#: src/window.rs:1331
+#: src/window.rs:1344
 msgid "Currently playing “{title}” by “{artist}”"
 msgstr "Cumò in riproduzion “{title}” di “{artist}”"
-
-#: src/window.rs:1377
-msgid "Amberol needs to run in the background to play music"
-msgstr "Par riprodusi musiche Amberol al scugne zirâ in sotfont"

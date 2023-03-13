@@ -6,9 +6,45 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Allow restoring the playlist from the previous session [!120]
+- Allow disabling background playback
+- New translations
+  - Belarusian
+  - French
+  - Korean
+  - Friulan
+
 ### Changed
 
+- Update the dependency to the gtk-rs bindings
+- Use consistent labelling for adding single songs [#270]
+- Translation updates
+  - Ukrainian
+  - German
+  - Slovenian
+  - Portuguese
+  - Brazilian Portuguese
+  - Georgian
+  - Russian
+  - Croatian
+  - Danish
+  - Turkish
+  - Swedish
+  - Hebrew
+  - Polish
+  - Indonesian
+  - Occitan
+  - Lithuanian
+
 ### Fixed
+
+- Reset the playlist position when searching [!117]
+- Use HIG-compliant capitalization in the shortcuts view [!115]
+- Narrow playlist view [#230]
+- Do not add duplicate songs to the playlist [#248]
+- Update next track button state depending on repeat mode [!114]
+- Fix styling of the search bar [#266]
+- Stop waveform pipeline when dropping the generator [!107]
 
 ### Removed
 

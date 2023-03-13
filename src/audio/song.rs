@@ -12,7 +12,7 @@ use glib::{
     ParamFlags, ParamSpec, ParamSpecBoolean, ParamSpecObject, ParamSpecString, ParamSpecUInt, Value,
 };
 use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
-use lofty::Accessor;
+use lofty::{Accessor, TaggedFileExt};
 use log::{debug, warn};
 use once_cell::sync::Lazy;
 use sha2::{Digest, Sha256};

@@ -5,12 +5,16 @@ use core::cmp::Ordering;
 use std::path::PathBuf;
 
 use color_thief::{get_palette, ColorFormat};
+use glib::clone;
 use gtk::{gdk, gio, glib, prelude::*};
 use log::{debug, warn};
 
 use lofty::{Accessor, Tag, TagType};
 
-use crate::config::APPLICATION_ID;
+use crate::{
+    audio::{Queue, Song},
+    config::APPLICATION_ID,
+}
 
 pub fn settings_manager() -> gio::Settings {
     // We ship a single schema for both default and development profiles
@@ -449,4 +453,79 @@ pub fn load_files_from_folder(folder: &gio::File, recursive: bool) -> Vec<gio::F
     );
 
     res
+}
+
+async fn store_current_pls(queue: &Queue) {
+    let pls = glib::KeyFile::new();
+    pls.set_string("playlist", "X-GNOME-Title", "Amberol's current playlist");
+
+    pls.set_int64("playlist", "NumberOfEntries", queue.n_songs() as i64);
+
+    let model = queue.model();
+    for i in 0..model.n_items() {
+        let item = model.item(i).unwrap();
+        let song = item.downcast_ref::<Song>().unwrap();
+        let path = song.file().path().expect("Unknown file");
+        let path_str = path.to_string_lossy();
+        pls.set_value("playlist", &format!("File{i}"), &path_str);
+    }
+
+    let mut pls_cache = glib::user_cache_dir();
+    pls_cache.push("amberol");
+    pls_cache.push("playlists");
+    glib::mkdir_with_parents(&pls_cache, 0o755);
+
+    pls_cache.push("current.pls");
+    match pls.save_to_file(&pls_cache) {
+        Ok(_) => debug!("Current playlist updated to: {:?}", &pls_cache),
+        Err(e) => debug!("Unable to save current playlist: {e}"),
+    }
+}
+
+pub fn store_playlist(queue: &Queue) {
+    let ctx = glib::MainContext::default();
+    ctx.spawn_local(clone!(@weak queue => async move {
+        store_current_pls(&queue).await
+    }));
+}
+
+pub fn load_cached_songs() -> Option<Vec<gio::File>> {
+    let mut pls_cache = glib::user_cache_dir();
+    pls_cache.push("amberol");
+    pls_cache.push("playlists");
+    pls_cache.push("current.pls");
+
+    let pls = glib::KeyFile::new();
+    match pls.load_from_file(&pls_cache, glib::KeyFileFlags::NONE) {
+        Err(e) => {
+            debug!("Unable to load current playlist: {e}");
+            return None;
+        }
+        Ok(_) => (),
+    }
+
+    let n_entries: usize = match pls.int64("playlist", "NumberOfEntries") {
+        Ok(n) => n as usize,
+        Err(_) => 0,
+    };
+
+    let mut res = Vec::with_capacity(n_entries);
+
+    for i in 0..n_entries {
+        match pls.value("playlist", &format!("File{i}")) {
+            Ok(p) => res.push(gio::File::for_path(p)),
+            Err(e) => debug!("Skipping File{i} from playlist: {e}"),
+        }
+    }
+
+    Some(res)
+}
+
+pub fn has_cached_playlist() -> bool {
+    let mut pls_cache = glib::user_cache_dir();
+    pls_cache.push("amberol");
+    pls_cache.push("playlists");
+    pls_cache.push("current.pls");
+
+    pls_cache.exists()
 }

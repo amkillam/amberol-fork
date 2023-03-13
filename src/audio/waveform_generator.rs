@@ -8,7 +8,7 @@ use gst::prelude::*;
 use gtk::{gio, glib, prelude::*, subclass::prelude::*};
 use log::{debug, warn};
 
-use crate::audio::Song;
+use crate::audio::{Controller, PlaybackState, RepeatMode, Song};
 
 mod imp {
     use glib::{ParamFlags, ParamSpec, ParamSpecBoolean, Value};
@@ -73,14 +73,21 @@ impl Default for WaveformGenerator {
     }
 }
 
+impl Controller for WaveformGenerator {
+    fn set_playback_state(&self, _playback_state: &PlaybackState) {}
+
+    fn set_song(&self, song: &Song) {
+        self.imp().song.replace(Some(song.clone()));
+        self.load_peaks();
+    }
+
+    fn set_position(&self, _position: u64) {}
+    fn set_repeat_mode(&self, _mode: RepeatMode) {}
+}
+
 impl WaveformGenerator {
     pub fn new() -> Self {
         WaveformGenerator::default()
-    }
-
-    pub fn set_song(&self, song: Option<Song>) {
-        self.imp().song.replace(song);
-        self.load_peaks();
     }
 
     pub fn peaks(&self) -> Option<Vec<(f64, f64)>> {

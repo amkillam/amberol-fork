@@ -426,10 +426,24 @@ pub fn cmp_two_files(base: Option<&gio::File>, a: &gio::File, b: &gio::File) -> 
     let basename_a = a.basename().unwrap();
     let basename_b = b.basename().unwrap();
 
-    let mut order = cmp_by_track_number(a, b);
+    let mut order = cmp_by_artist_album_track_number(a, b);
+    std::println!(
+        "cmp like nautilus output: {:?}",
+        cmp_like_nautilus(&basename_a.to_string_lossy(), &basename_b.to_string_lossy())
+    );
 
     if order.is_eq() {
         order = cmp_like_nautilus(&basename_a.to_string_lossy(), &basename_b.to_string_lossy());
+        std::println!(
+            "ORDER EQUAL: {:?} {:?} {:?} {:?} {:?} {:?} {:?}",
+            parent_basename_a,
+            parent_basename_b,
+            basename_a,
+            basename_b,
+            order,
+            a,
+            b
+        );
     }
 
     order
@@ -454,9 +468,9 @@ fn cmp_like_nautilus(filename_a: &str, filename_b: &str) -> Ordering {
     order
 }
 
-
-fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
+fn cmp_by_artist_album_track_number(a: &gio::File, b: &gio::File) -> Ordering {
     let path_a = a.path().expect("Unable to find file");
+    std::println!("path_a: {:?}", path_a);
     let tagged_file_a = match lofty::read_from_path(&path_a) {
         Ok(f) => f,
         Err(e) => {
@@ -466,6 +480,7 @@ fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
     };
 
     let path_b = b.path().expect("Unable to find file");
+    std::println!("path_b: {:?}", path_b);
     let tagged_file_b = match lofty::read_from_path(&path_b) {
         Ok(f) => f,
         Err(e) => {
@@ -473,12 +488,60 @@ fn cmp_by_track_number (a: &gio::File, b: &gio::File) -> Ordering {
             return Ordering::Equal;
         }
     };
-    let track_number_a = tagged_file_a.primary_tag().unwrap_or(&Tag::new(TagType::ID3v2)).track().unwrap_or(0);
-    let track_number_b = tagged_file_b.primary_tag().unwrap_or(&Tag::new(TagType::ID3v2)).track().unwrap_or(0);
-    let order = track_number_a.cmp(&track_number_b);
+    let default_tag = Tag::new(TagType::ID3v2);
+    let artist_a = tagged_file_a
+        .primary_tag()
+        .unwrap_or(&default_tag)
+        .artist()
+        .unwrap_or("0");
+    std::println!("artist_a: {:?}", artist_a);
+    let artist_b = tagged_file_b
+        .primary_tag()
+        .unwrap_or(&default_tag)
+        .artist()
+        .unwrap_or("0");
+    std::println!("artist_b: {:?}", artist_b);
+    let mut order = artist_a.cmp(&artist_b);
+    std::println!("order: {:?}", order);
 
-    order
+    if order.is_eq() {
+        let album_a = tagged_file_a
+            .primary_tag()
+            .unwrap_or(&default_tag)
+            .album()
+            .unwrap_or("0");
+        std::println!("album_a: {:?}", album_a);
+        let album_b = tagged_file_b
+            .primary_tag()
+            .unwrap_or(&default_tag)
+            .album()
+            .unwrap_or("0");
+        std::println!("album_b: {:?}", album_b);
+        order = album_a.cmp(&album_b);
+        std::println!("order: {:?}", order);
 
+        if order.is_eq() {
+            let track_number_a = tagged_file_a
+                .primary_tag()
+                .unwrap_or(&default_tag)
+                .track()
+                .unwrap_or(0);
+            std::println!("track_number_a: {:?}", track_number_a);
+            let track_number_b = tagged_file_b
+                .primary_tag()
+                .unwrap_or(&default_tag)
+                .track()
+                .unwrap_or(0);
+            std::println!("track_number_b: {:?}", track_number_b);
+            order = track_number_a.cmp(&track_number_b);
+            std::println!("order: {:?}", order);
+            order
+        } else {
+            order
+        }
+    } else {
+        order
+    }
 }
 
 pub fn load_files_from_folder(folder: &gio::File, recursive: bool) -> Vec<gio::File> {

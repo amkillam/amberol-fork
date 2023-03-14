@@ -20,8 +20,8 @@ mod window;
 
 use std::env;
 
-use config::{APPLICATION_ID, GETTEXT_PACKAGE, LOCALEDIR, PKGDATADIR, PROFILE};
-use gettextrs::{bind_textdomain_codeset, bindtextdomain, setlocale, textdomain, LocaleCategory};
+use config::{APPLICATION_ID, GETTEXT_PACKAGE, PKGDATADIR, PROFILE};
+use gettextrs::{bind_textdomain_codeset, setlocale, textdomain, LocaleCategory};
 use gtk::{gio, glib, prelude::*};
 use log::{debug, error, LevelFilter};
 
@@ -39,7 +39,6 @@ fn main() {
     debug!("Setting up locale data");
     setlocale(LocaleCategory::LcAll, "");
 
-    // bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Unable to bind the text domain");
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")
         .expect("Unable to set the text domain encoding");
     textdomain(GETTEXT_PACKAGE).expect("Unable to switch to the text domain");

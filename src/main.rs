@@ -28,6 +28,7 @@ use log::{debug, error, LevelFilter};
 use self::application::Application;
 
 fn main() {
+    env::set_var("XDG_DATA_DIRS", PKGDATADIR);
     let mut builder = pretty_env_logger::formatted_builder();
     if APPLICATION_ID.ends_with("Devel") {
         builder.filter(Some("amberol"), LevelFilter::Debug);

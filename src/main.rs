@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2022  Emmanuele Bassi
 // SPDX-License-Identifier: GPL-3.0-or-later
-
+#![windows_subsystem = "windows"]
 mod application;
 mod audio;
 mod config;

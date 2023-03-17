@@ -10,7 +10,7 @@ import psutil
 #Formatted by replacing all commas with: ",\n"
 #And manually placing a double quote at start of the first element and end of the last, along with their corresponding square bracket.
 #2. The same, just as it processed files added to playlist.
-#3. Trial and error. Using all files with "pixbuf" in their basename was found through trial and error - needed to load images. Check which explicitly removes .exe files was only to remove files with "pixbuf" in their names, but .exe as well, which we do not want.
+#3. Trial and error. Using all files with "pixbuf" in their basename, and loader.cache allows loading of images. Application does not start without bundling Dbus-daemon and its dependencies.
 dependencies = ["amberol.exe",
 "5636",
 "ntdll.dll",
